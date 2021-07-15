@@ -1,0 +1,157 @@
+body
+{
+    background-image: url("img/tlo.jpg");
+}
+#box
+{
+    width: 930px;
+    margin: auto;
+}
+#logo
+{
+    font-family: 'Big Shoulders Stencil Display', sans-serif;
+    background-color: rgb(79, 181, 221);
+    color: wheat;
+    text-align: center;
+    font-size: 48px;
+    padding: 4px 0px 4px 0px;
+    font-weight: bold;
+}
+#nav
+{
+    font-family: 'Lato', sans-serif;
+    float: left;
+    background-color: rgb(231, 76, 48);
+    width: 120px;
+    height: 600px;
+    padding: 5px;
+    font-weight: bold;
+}
+#content
+{
+    font-family: 'Lato', sans-serif;
+    float: left;
+    background-color: white;
+    width: 790px;
+    height: 600px;
+    padding: 5px
+}
+#footer
+{
+    font-family: 'Lato', sans-serif;
+    clear: both;
+    width: 600 px;
+    height: 35px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 2px;
+}
+/*Inne linki*/
+a:link
+{
+    color: rgb(193, 100, 216);
+    text-decoration: none;
+    font-weight: bold;
+}
+a:visited
+{
+    color: rgb(193, 100, 216);
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover
+{
+    color: rgb(217, 128, 240);
+}
+/*Normalny link oraz po w nawigacji
+One są specjalnie tak ustawione, aby nie mylić zwykłych linków z linkami nawigacyjnymi*/
+a.navlink
+{
+    color: white;
+    text-decoration: none;
+}
+a.navlink:hover
+{
+    color: lightgrey;
+    text-decoration: none;
+}
+
+
+
+/*Tutaj znajduje się konfiguracja szubiennicy*/
+#box-szubiennica
+{
+    width: 910px;
+    margin: auto;
+}
+#content-szubiennica
+{
+    font-family: 'Lato', sans-serif;
+    height: 600px;
+    padding: 5px;
+    background-color: #8a8a8a;
+	color: lightgray;
+	font-size: 28px;
+}
+#nav-szub
+{
+    font-family: 'Lato', sans-serif;
+    background-color: rgb(231, 76, 48);
+    height: 30px;
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+}
+#plansza
+{
+	width: 910px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	text-align: center;
+	font-size: 48px;
+	min-height: 60px;
+}
+#szubienica
+{
+	float: left; 
+	width: 450px;
+	text-align: center;
+	min-height: 280px;
+}
+#alfabet
+{
+    font-family: 'Big Shoulders Stencil Display', sans-serif;
+	float: left; 
+	width: 450px;
+	text-align: center;
+	min-height: 280px;
+}
+.litera
+{
+	width: 30px;
+	height: 30px;
+	text-align:center;
+	padding: 5px;
+	margin: 5px;
+	border: 3px solid gray;
+	float: left;
+	cursor: pointer;
+	border-radius: 15px;
+}
+.litera:hover
+{
+	background-color: #7e7e7e;
+	color: white;
+	border: 3px solid white;
+}
+.reset
+{
+	color:rgb(21, 226, 21);
+	cursor: pointer;
+	font-size: 48px;
+}
+.reset:hover
+{
+	color:white;
+}

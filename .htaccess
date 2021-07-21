@@ -7,6 +7,6 @@ Deny from all
 RewriteEngine on
 RewriteRule home index.html
 RewriteRule zagraj-w-wisielca szubienica.html
-RewriteRule oferta-tworzenie-stron-www dsc.html
+RewriteRule serwery-dsc dsc.html
 RewriteRule projekty-batch projekty.html
 RewriteRule kontakt-do-mnie kontakt.html

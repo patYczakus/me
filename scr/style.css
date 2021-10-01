@@ -1,0 +1,37 @@
+body {
+    background-color: rgb(230, 167, 179);
+    margin: 0px;
+}
+#header {
+    font-family: 'Gluten', sans-serif;
+    width: 100% - 12px;
+    height: 50px;
+    background-color: black;
+    color: wheat;
+    padding: 7px 0px 3px 12px;
+    font-size: 50px;
+}
+#box {
+    width: 50%;
+    padding-top: 15px;
+    margin: auto;
+}
+.content {
+    font-family: 'Truculenta', sans-serif;
+    padding: 15px;
+    width: 90%;
+    border: 5px crimson solid;
+    font-size: 20px;
+    min-height: 500px;
+}
+
+.button-nav {
+    width: 150px;
+    padding: 3px 0px 3px 0px;
+    height: 30px;
+    font-family: 'Orbitron', sans-serif;
+    background-color: #87CEFA;
+}
+.button-nav:hover {
+    background-color: #78BDEA;
+}

@@ -11,7 +11,7 @@ body {
     padding: 7px 0px 3px 12px;
     font-size: 50px;
 }
-#box {
+#box{
     width: 50%;
     padding-top: 15px;
     margin: auto;
@@ -34,4 +34,18 @@ body {
 }
 .button-nav:hover {
     background-color: #78BDEA;
+}
+a {
+    color: goldenrod;
+    text-decoration: none;
+    font-weight: 900;
+}
+a:hover {
+    color: rgb(187, 142, 28);
+    text-decoration: none;
+    font-weight: 900;
+}
+.select {
+    background-color: rgb(230, 167, 179);
+    font-family: 'Truculenta', sans-serif;
 }

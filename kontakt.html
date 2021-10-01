@@ -3,7 +3,7 @@
     <head>
         <!--| Configurate |-->
         <meta charset="utf-8" />
-        <title>Patryktopek</title>
+        <title>Kontakt - Patryktopek</title>
         <meta name="description" content="Strona Patyczaka 'Xdemona' Rogalskiego. Zapraszam!" />
         <meta name="keywords" content="patryktopek, xdemon, rogalski, rogal" />
         <meta http-equiv="X-UA_Compatible" content="IE=edge,chrome=1" />
@@ -14,7 +14,15 @@
         <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@200&family=Orbitron:wght@500&family=Truculenta:wght@300&display=swap" rel="stylesheet">
         <script>
             function goto(anch) {
-	            window.location.href = anch;
+	            window.location.href = anch + ".html";
+            }
+            function select_all(obj) {
+                var text_val=eval(obj);
+                text_val.focus();
+                text_val.select();
+                if (!document.all) return; // IE only
+                r = text_val.createTextRange();
+                r.execCommand('copy');
             }
         </script>
     </head>
@@ -25,13 +33,15 @@
             Patryktopek
         </header></div>
         <!--| Navigation |-->
-        <button class="button-nav" disabled>Home</button> <button class="button-nav" onclick="goto('kontakt.html')">Kontakt</button>
+        <nav>
+            <button class="button-nav" onclick="goto('home')">Home</button> <button class="button-nav"  disabled>Kontakt</button>
+        </nav>
 
-
-        <!--| Content of my website |-->
         <div id="box">
+            <!--| Content of my website |-->
             <div class="content"><article>
-                No cześć
+                Taka ciekawostka - mg z Tobą zaprzyjaźnić użytkowniku! Więc trzmaj tag Discorda:
+                <input value="patYczakus#9474" onclick="select_all(this)" name="Nazwa#tag" type="text" class="select" />
             </article></div>
         </div>
     </body>

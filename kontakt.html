@@ -12,19 +12,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@200&family=Orbitron:wght@500&family=Truculenta:wght@300&display=swap" rel="stylesheet">
-        <script>
-            function goto(anch) {
-	            window.location.href = anch + ".html";
-            }
-            function select_all(obj) {
-                var text_val=eval(obj);
-                text_val.focus();
-                text_val.select();
-                if (!document.all) return; // IE only
-                r = text_val.createTextRange();
-                r.execCommand('copy');
-            }
-        </script>
+        <script src="scr/main.js"></script>
     </head>
     <body>
         <!--| Header |-->
@@ -34,7 +22,7 @@
         </header></div>
         <!--| Navigation |-->
         <nav>
-            <button class="button-nav" onclick="goto('home')">Home</button> <button class="button-nav"  disabled>Kontakt</button>
+            <button class="button-nav" onclick="go('home')">Home</button> <button class="button-nav"  disabled>Kontakt</button>
         </nav>
 
         <div id="box">

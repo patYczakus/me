@@ -1,6 +1,7 @@
 function go(anch) {
     window.location.href = anch + ".html";
 }
+
 function select_all(obj) {
     var text_val=eval(obj);
     text_val.focus();

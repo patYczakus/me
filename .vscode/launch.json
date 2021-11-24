@@ -5,16 +5,16 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-msedge",
+            "name": "Szybki wgląd",
             "request": "launch",
-            "name": "Otwóz nową stronę",
-            "file": "c:\\Users\\patry\\Desktop\\HTML\\Github\\me\\strona.html"
+            "type": "pwa-chrome",
+            "file": "c:\\Users\\patry\\Desktop\\HTML\\Github\\me\\home.html",
         },
         {
-            "type": "pwa-msedge",
+            "name": "Start",
             "request": "launch",
-            "name": "Open index.html",
-            "file": "c:\\Users\\patry\\Desktop\\HTML\\Github\\me\\index.html"
-        }
+            "type": "pwa-chrome",
+            "file": "c:\\Users\\patry\\Desktop\\HTML\\Github\\me\\index.html",
+        },
     ]
 }

@@ -1,7 +1,7 @@
 function start() {
     setTimeout(function() {
         go("home")
-    }, 3000);
+    }, 1500);
 }
 
 function go(anch) {

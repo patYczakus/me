@@ -6,13 +6,13 @@ body {
 #header {
     font-family: 'Gluten', sans-serif;
     width: 100% - 12px;
-    height: 50px;
+    height: 60px;
     background-color: black;
     color: wheat;
     padding: 7px 0px 0px 12px;
     font-size: 50px;
 }
-#box{
+#box {
     width: 50%;
     padding-top: 15px;
     margin: auto;
@@ -25,28 +25,44 @@ body {
     font-size: 20px;
     min-height: 500px;
 }
+.nav {
+    text-align: center;
+    margin-top: -13px;
+    margin-bottom: 3px;
+    width: 100%;
+    height: auto;
+}
 
 .button-nav {
     min-width: 150px;
-    padding: 3px 0px 3px 0px;
+    padding: 3px 7px 3px 7px;
+    margin: 0px 3px 0px 3px;
     height: 30px;
     font-family: 'Orbitron', sans-serif;
     cursor: pointer;
+    border: 3px rgb(0, 0, 0) solid;
+    border-radius: 5px;
 }
 .button-nav:disabled {
-    background-color: rgb(0, 0, 0, 0);
+    background-color: rgb(70, 70, 70);
+    color: white;
+    cursor: default;
 }
 .btn-web {
     background-color: #87CEFA;
 }
-.btn-web:hover:not(:disabled) {
+.btn-web:hover:not(:disabled):not(:focus) {
     background-color: #6eabd4;
 }
 .btn-href {
     background-color: #fd6d2b
 }
-.btn-href:hover:not(:disabled) {
+.btn-href:hover:not(:disabled):not(:focus) {
     background-color: #dd652d;
+}
+.button-nav:focus:not(:disabled) {
+    background-color: black;
+    color: white;
 }
 
 a {
@@ -58,8 +74,4 @@ a:hover {
     color: rgb(187, 142, 28);
     text-decoration: none;
     font-weight: 900;
-}
-.select {
-    background-color: rgba(255, 255, 255, 0);
-    font-family: 'Truculenta', sans-serif;
 }

@@ -16,7 +16,7 @@ const listahasel = [
 		"kategoria":"WYKORZYSTANE JĘZYKI NA STRONIE",
 	},
 	{
-		"tekst":"STAROŚĆ, NIE RADOŚĆ, MŁODOŚĆ NIE Wieczność",
+		"tekst":"STAROŚĆ, NIE RADOŚĆ; MŁODOŚĆ, NIE Wieczność",
 		"kategoria":"PRZYSŁOWIE",
 	},
 	{
@@ -28,13 +28,35 @@ const listahasel = [
 		"kategoria":"PRZYSŁOWIE",
 	},
 	{
-		"tekst":"GDZIE DRWA RĄBIĄ TAM WIÓRY LECĄ",
+		"tekst":"GDZIE DRWA RĄBIĄ, TAM WIÓRY LECĄ",
 		"kategoria":"PRZYSŁOWIE",
+	},
+	{
+		"tekst":"Minecraft",
+		"kategoria":"Gra komputerowa",
+	},
+	{
+		"tekst":"Kwas Siarkowodorowy",
+		"kategoria":"Chemia",
+	},
+	{
+		"tekst":"Kto z rana wstaje, temu Pan bóg daje",
+		"kategoria":"PRZYSŁOWIE",
+	},
+	{
+		"tekst":"Axe",
+		"kategoria":"Jedna z ksywek dziewczyny Patyczaka",
+	},
+	{
+		"tekst":"CyberAngel236",
+		"kategoria":"Jedna z ksywek dziewczyny Patyczaka",
 	},
 ]
 var numhas = Math.floor(Math.random() * listahasel.length);
 var haslo = listahasel[numhas].tekst;
 haslo = haslo.toUpperCase();
+var kategory = listahasel[numhas].kategoria;
+kategory = kategory.toUpperCase();
 
 var dlugosc = haslo.length;
 var ile_skuch = 0;
@@ -46,7 +68,6 @@ var wygrana = new Audio("scr/sounds/wygrana.wav")
 var oodslon = new Audio("scr/sounds/odslon.wav")
 
 var haslo1 = "";
-
 
 for (i=0; i<dlugosc; i++)
 {
@@ -64,7 +85,7 @@ function wypisz_haslo()
 
 window.onload = start;
 
-var litery = new Array(35);
+var litery = new Array(44);
 
 litery[0] = "A";
 litery[1] = "Ą";
@@ -101,6 +122,16 @@ litery[31] = "Y";
 litery[32] = "Z";
 litery[33] = "Ż";
 litery[34] = "Ź";
+litery[35] = "0";
+litery[36] = "1";
+litery[37] = "2";
+litery[38] = "3";
+litery[39] = "4";
+litery[40] = "5";
+litery[41] = "6";
+litery[42] = "7";
+litery[43] = "8";
+litery[44] = "9";
 
 
 
@@ -109,7 +140,7 @@ function start()
 	
 	var tresc_diva ="";
 	
-	for (i=0; i<=34; i++)
+	for (i=0; i<litery.length; i++)
 	{
 		var element = "lit" + i;
 		tresc_diva = tresc_diva + '<div class="litera" onclick="sprawdz('+i+')" id="'+element+'">'+litery[i]+'</div>';
@@ -117,7 +148,7 @@ function start()
 	
 	document.getElementById("alfabet").innerHTML = tresc_diva;
 	document.getElementById("statystyki").style.border = `4px solid rgba(${Math.floor(Math.random * 255)}, ${Math.floor(Math.random * 255)}, ${Math.floor(Math.random * 255)})`;
-	document.getElementById("statystyki").innerHTML = `Ilość haseł: <span class="d">${listahasel.length}</span> ∙ Kategoria: <span class="d">${listahasel[numhas].kategoria}</span>`
+	document.getElementById("statystyki").innerHTML = `Ilość haseł: <span class="d">${listahasel.length}</span> ∙ Kategoria: <span class="d">${kategory}</span>`
 	
 	wypisz_haslo();
 }
@@ -197,16 +228,15 @@ function sprawdz(nr)
 	
 	//wygrana
 	if (haslo == haslo1) {
-		document.getElementById("alfabet").innerHTML  = "Tak jest! Podano prawidłowe hasło: "+haslo+'<br /><br /><span class="reset" onclick="location.reload()">JESZCZE RAZ?</span>';
-		document.getElementById("type").innerHTML = '<button class="button" onclick="window.location.href = `szubienica.html`"><span class="d">L</span>osuj nowe hasło</button> <button class="button" onclick="window.location.href = `games.html`"><span class="d">W</span>róć do Rich Presence Games &lt;--</button> <button class="button" disabled><span class="d">O</span>dsłoń hasło</button>'
+		document.getElementById("alfabet").innerHTML  = 'Tak jest! Podano prawidłowe hasło!<br /><br /><span class="reset" onclick="location.reload()">JESZCZE RAZ?</span>'
+		document.getElementById("type").innerHTML = '<button class="button" disabled><span class="d">L</span>osuj nowe hasło</button> <button class="button" onclick="window.location.href = `games.html`"><span class="d">W</span>róć do Rich Presence Games &lt;--</button> <button class="button" disabled><span class="d">O</span>dsłoń hasło</button>'
 		wygrana.play()
 		document.getElementById("statystyki").innerHTML = `Ilość haseł: <span class="d">${listahasel.length}</span>`
 	}
-	
 	//przegrana
 	if (ile_skuch>=9) {
 		przegrana.play()
-		document.getElementById("alfabet").innerHTML  = `Przegrana! Prawidłowe hasło: ${haslo} (${listahasel[numhas].kategoria})<br /><br /><span class="reset" onclick="location.reload()">JESZCZE RAZ?</span>`;
+		document.getElementById("alfabet").innerHTML  = `Przegrana! Prawidłowe hasło: ${haslo} (${kategory})<br /><br /><span class="reset" onclick="location.reload()">JESZCZE RAZ?</span>`;
 		document.getElementById("type").innerHTML = '<button class="button" disabled><span class="d">L</span>osuj nowe hasło</button> <button class="button" onclick="window.location.href = `games.html`"><span class="d">W</span>róć do Rich Presence Games &lt;--</button> <button class="button" disabled><span class="d">O</span>dsłoń hasło</button>'
 		document.getElementById("statystyki").innerHTML = `Ilość haseł: <span class="d">${listahasel.length}</span>`
 	}
@@ -215,8 +245,8 @@ function sprawdz(nr)
 function odslon() {
 	oodslon.play()
 	document.getElementById("plansza").innerHTML = haslo
-	document.getElementById("alfabet").innerHTML = `Odsłonięto hasło! (${haslo})<br />Kategoria: ${listahasel[numhas].kategoria}<br /><br /><span class="reset" onclick="location.reload()">LOSUJ NOWE!</span>`;
+	document.getElementById("alfabet").innerHTML = `Odsłonięto hasło! (${haslo})<br />Kategoria: ${kategory}<br /><br /><span class="reset" onclick="location.reload()">LOSUJ NOWE!</span>`;
 	document.getElementById("type").innerHTML = '<button class="button" disabled><span class="d">L</span>osuj nowe hasło</button> <button class="button" onclick="window.location.href = `games.html`"><span class="d">W</span>róć do Rich Presence Games &lt;--</button> <button class="button" disabled><span class="d">O</span>dsłoń hasło</button>'
 	document.getElementById("statystyki").innerHTML = `Ilość haseł: <span class="d">${listahasel.length}</span>`
-	document.getElementById("szubienica").innerHTML = `<div style="width: 900px; height: 43px; background-color: orange; text-align: center; border-style: none;"></div>`;
+	document.getElementById("szubienica").innerHTML = `<div style="width: ${(9 - ile_skuch) * 100}px; height: 43px; background-color: orange; text-align: center; border-style: none;"></div>`;
 }

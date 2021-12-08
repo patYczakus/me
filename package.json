@@ -1,0 +1,19 @@
+{
+  "name": "me",
+  "version": "1.0.0",
+  "description": "Konfiguracja strony Patyczaka",
+  "main": "meme.js",
+  "scripts": {
+    "start": "npm run meme.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Patyczakus/me.git"
+  },
+  "author": "Patryk (Patyczak Rogalski)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Patyczakus/me/issues"
+  },
+  "homepage": "https://github.com/Patyczakus/me#readme"
+}

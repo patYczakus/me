@@ -3,15 +3,17 @@
     <head>
         <!--| Configurate |-->
         <meta charset="utf-8" />
-        <title>Home - Patryktopek</title>
-        <meta name="description" content="Strona Patyczaka 'Xdemona' Rogalskiego. Zapraszam!" />
+        <title>Rich Presence Games by Patryktopek</title>
+        <meta name="description" content="Strona gier Patyczaka 'Xdemona' Rogalskiego. Zapraszam!" />
         <meta name="keywords" content="patryktopek, xdemon, rogalski, rogal" />
         <meta http-equiv="X-UA_Compatible" content="IE=edge,chrome=1" />
         <link rel="stylesheet" href="scr/codes/css/style.css" type="text/css" />
+        <link rel="stylesheet" href="scr/codes/css/rich-presence-games.css" type="text/css" />
         <link rel="shortcut icon" type="image/x-icon" href="scr/img/logo.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@200&family=Orbitron:wght@500&family=Truculenta:wght@300&display=swap" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <script src="scr/codes/js/main.js"></script>
     </head>
     <body>
@@ -22,17 +24,20 @@
         </header></div>
         <!--| Navigation |-->
         <div class="nav"><nav>
-            <button class="button-nav btn-web" disabled>Home</button> <button class="button-nav btn-web" onclick="go('games')">Rich Presence Games</button> <button class="button-nav btn-web" onclick="go('archiwum-klasy')">Archiwum prac szkolnych</button>
+            <button class="button-nav btn-web" onclick="go('home')">Home</button> <button class="button-nav" disabled>Rich Presence Games</button> <button class="button-nav btn-web" onclick="go('archiwum-klasy')">Archiwum prac szkolnych</button>
         </nav></div>
 
         <div id="box">
             <!--| Content of my website |-->
             <div class="content"><article>
-                <h1>No cześć!</h1>
-                Jestem <b>Patryk</b> - inaczej mówią do mn <i>Patyczak, Xdemon, Topek, itp</i>. Lat 14<br />
-                Me hobby to: programowanie (web dev, bot dev, bash), szkicowanie, muzyka (w <a href="https://www.image-line.com/" target="_blank">FL Studio</a> i gitarą) oraz w mniejszym stopniu gotowanie<br />
-                Jestem bystry, mądry, żartobliwy, lecz też jestem samolubny, wcipski i wkurzający<br /><br />
-                <b>Mam nadzieję, że masz dobry humor. Miłego dnia! ❤</b>
+                <h1>Lista gier:</h1>
+                <ul style="margin-top: -20px;">
+                    <li><a href="#szubienica">Szubienica (wisielec)</a>
+                </ul>
+                <br /><br />
+                <h2 id="szubienica">Szubienica (wisielec)</h2>
+                Kto nie zna tak popularnej gry jak szubienica? Z pewnością każdy zna - nie raz o nim słyszał. Więc oto przedstawiam Wam wykodowaną przeze mnie szubienicę!<br /><br />
+                <button class="button" onclick="go('szubienica')"><span class="d">Z</span>agraj teraz --></button>
             </article></div>
         </div>
     </body>

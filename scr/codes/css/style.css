@@ -5,12 +5,13 @@ body {
 }
 #header {
     font-family: 'Gluten', sans-serif;
-    width: 100% - 12px;
+    width: calc(100% - 12px);
     height: 60px;
     background-color: black;
     color: wheat;
     padding: 7px 0px 0px 12px;
     font-size: 50px;
+    font-weight: 500;
 }
 #box {
     width: 50%;

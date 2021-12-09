@@ -87,7 +87,12 @@ const listahasel = [
 		"tekst":"Spotify",
 		"kategoria":"serwis strumieniowy",
 	},
+	{
+		"tekst":"Złodziej poduszek",
+		"kategoria":"Ksywka Patyczaka",
+	},
 ]
+
 var numhas = Math.floor(Math.random() * listahasel.length);
 var haslo = listahasel[numhas].tekst;
 haslo = haslo.toUpperCase();

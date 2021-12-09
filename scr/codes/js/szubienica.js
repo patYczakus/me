@@ -51,6 +51,42 @@ const listahasel = [
 		"tekst":"CyberAngel236",
 		"kategoria":"Jedna z ksywek dziewczyny Patyczaka",
 	},
+	{
+		"tekst":"CyberAngel236",
+		"kategoria":"Jedna z ksywek dziewczyny Patyczaka",
+	},
+	{
+		"tekst":"NIESZCZĘŚCIA CHODZĄ PARAMI",
+		"kategoria":"Przysłowie",
+	},
+	{
+		"tekst":"Chris Brown",
+		"kategoria":"Zagraniczny piosenkarz",
+	},
+	{
+		"tekst":"Jon Bon Jovi",
+		"kategoria":"Zagraniczny piosenkarz",
+	},
+	{
+		"tekst":"Dżem",
+		"kategoria":"Polski zespół",
+	},
+	{
+		"tekst":"Ed Sheeran",
+		"kategoria":"Zagraniczny piosenkarz",
+	},
+	{
+		"tekst":"Trudne Hasło",
+		"kategoria":"hasło",
+	},
+	{
+		"tekst":"IE",
+		"kategoria":"Emulator przeglądarkowy",
+	},
+	{
+		"tekst":"Spotify",
+		"kategoria":"serwis strumieniowy",
+	},
 ]
 var numhas = Math.floor(Math.random() * listahasel.length);
 var haslo = listahasel[numhas].tekst;
@@ -61,10 +97,10 @@ kategory = kategory.toUpperCase();
 var dlugosc = haslo.length;
 var ile_skuch = 0;
 
-var yes = new Audio("scr/sounds/yes.wav")
+var yes = new Audio("scr/sounds/yes.mp3")
 var no = new Audio("scr/sounds/no.wav")
-var przegrana = new Audio("scr/sounds/przegrana.wav")
-var wygrana = new Audio("scr/sounds/wygrana.wav")
+var przegrana = new Audio("scr/sounds/przegrana.mp3")
+var wygrana = new Audio("scr/sounds/wygrana.mp3")
 var oodslon = new Audio("scr/sounds/odslon.wav")
 
 var haslo1 = "";
@@ -147,7 +183,6 @@ function start()
 	}
 	
 	document.getElementById("alfabet").innerHTML = tresc_diva;
-	document.getElementById("statystyki").style.border = `4px solid rgba(${Math.floor(Math.random * 255)}, ${Math.floor(Math.random * 255)}, ${Math.floor(Math.random * 255)})`;
 	document.getElementById("statystyki").innerHTML = `Ilość haseł: <span class="d">${listahasel.length}</span> ∙ Kategoria: <span class="d">${kategory}</span>`
 	
 	wypisz_haslo();
@@ -231,7 +266,6 @@ function sprawdz(nr)
 		document.getElementById("alfabet").innerHTML  = 'Tak jest! Podano prawidłowe hasło!<br /><br /><span class="reset" onclick="location.reload()">JESZCZE RAZ?</span>'
 		document.getElementById("type").innerHTML = '<button class="button" disabled><span class="d">L</span>osuj nowe hasło</button> <button class="button" onclick="window.location.href = `games.html`"><span class="d">W</span>róć do Rich Presence Games &lt;--</button> <button class="button" disabled><span class="d">O</span>dsłoń hasło</button>'
 		wygrana.play()
-		document.getElementById("statystyki").innerHTML = `Ilość haseł: <span class="d">${listahasel.length}</span>`
 	}
 	//przegrana
 	if (ile_skuch>=9) {
@@ -248,5 +282,5 @@ function odslon() {
 	document.getElementById("alfabet").innerHTML = `Odsłonięto hasło! (${haslo})<br />Kategoria: ${kategory}<br /><br /><span class="reset" onclick="location.reload()">LOSUJ NOWE!</span>`;
 	document.getElementById("type").innerHTML = '<button class="button" disabled><span class="d">L</span>osuj nowe hasło</button> <button class="button" onclick="window.location.href = `games.html`"><span class="d">W</span>róć do Rich Presence Games &lt;--</button> <button class="button" disabled><span class="d">O</span>dsłoń hasło</button>'
 	document.getElementById("statystyki").innerHTML = `Ilość haseł: <span class="d">${listahasel.length}</span>`
-	document.getElementById("szubienica").innerHTML = `<div style="width: ${(9 - ile_skuch) * 100}px; height: 43px; background-color: orange; text-align: center; border-style: none;"></div>`;
+	document.getElementById("szubienica").innerHTML = `<div style="width: ${(9 - ile_skuch) * 100}px; height: 43px; background-color: orange; text-align: center; border-style: none;"></div>`
 }

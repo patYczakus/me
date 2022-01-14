@@ -24,7 +24,7 @@ body {
     width: 90%;
     border: 5px crimson solid;
     font-size: 20px;
-    min-height: 500px;
+    height: auto;
 }
 .nav {
     text-align: center;

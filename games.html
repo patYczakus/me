@@ -16,6 +16,9 @@
         <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
         <script src="scr/codes/js/main.js"></script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-S09DQZ7N2C"></script>
+
+        <link rel="stylesheet" href="scr/codes/css/poput-style.css" type="text/css" />
+        <script src="scr/codes/js/poput-script.js"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -25,6 +28,14 @@
         </script>
     </head>
     <body>
+        <!--| Poput Test |-->
+        <div class="poput" id="poput">
+            <div class="overlay"></div>
+            <div class="content" id="content">
+                <div class="closePoput" onclick="tooglePoput()">&times;</div>
+            </div>
+        </div>
+
         <!--| Header |-->
         <div id="header"><header>
             <div style="padding-top: 0px; padding-right: 10px; float: left; font-size: 0px;"><img width="40px" height="40px" src="scr/img/logo.png" /></div>
@@ -41,11 +52,18 @@
                 <h1>Lista gier:</h1>
                 <ul style="margin-top: -20px;">
                     <li><a href="#szubienica">Szubienica (wisielec)</a>
+                    <li><a href="#tower-defense-scratch">Tower Defense (Scratch na skrypcie)</a>
                 </ul>
-                <br /><br />
+                ---<br />
                 <h2 id="szubienica">Szubienica (wisielec)</h2>
                 Kto nie zna tak popularnej gry jak szubienica? Z pewnością każdy zna - nie raz o nim słyszał. Więc oto przedstawiam Wam wykodowaną przeze mnie szubienicę!<br /><br />
                 <button class="button" onclick="go('szubienica')"><span class="d">Z</span>agraj teraz --></button>
+                <br /><br /><br />---<br />
+                <h2 id="tower-defense-scratch">Tower Defense (Scratch na skrypcie)</h2>
+                Tower Defense jest to strategiczna gra, gdzie zadaniem gracza jest powstrzymywanie kolejnych fal przeciwników poprzez stawianie wież obronnych.<br />
+                Dzięki mojemu systemu Poput możesz zagrać w grę niewychodząc nawet z przeglądarki!<br /><br />
+                <button class="button" onclick='PoputCreate("", `<iframe src="https:\/\/scratch.mit.edu/projects/611142375/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>`)'><span class="d">Z</span>agraj teraz --></button>
+                <br /><br /><br />---<br />
             </article></div>
         </div>
     </body>

@@ -16,3 +16,4 @@ function write(where, text, at_time) {
         }, x*at_time)
     }
 };
+

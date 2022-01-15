@@ -64,7 +64,7 @@
 	animation-duration: .5s;
 }
 
-.button:focus:not(:disabled) {
+.button:active:not(:disabled) {
 	background-color: black;
 	border-style: none;
 	border-radius: 10px;

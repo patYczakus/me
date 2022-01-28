@@ -102,11 +102,11 @@ kategory = kategory.toUpperCase();
 var dlugosc = haslo.length;
 var ile_skuch = 0;
 
-var yes = new Audio("scr/sounds/yes.mp3")
-var no = new Audio("scr/sounds/no.wav")
-var przegrana = new Audio("scr/sounds/przegrana.mp3")
-var wygrana = new Audio("scr/sounds/wygrana.mp3")
-var oodslon = new Audio("scr/sounds/odslon.wav")
+var yes = new Audio("../scr/sounds/yes.mp3")
+var no = new Audio("../scr/sounds/no.wav")
+var przegrana = new Audio("../scr/sounds/przegrana.mp3")
+var wygrana = new Audio("../scr/sounds/wygrana.mp3")
+var oodslon = new Audio("../scr/sounds/odslon.wav")
 
 var haslo1 = "";
 
@@ -188,7 +188,7 @@ function start()
 	}
 	
 	document.getElementById("alfabet").innerHTML = tresc_diva;
-	document.getElementById("statystyki").innerHTML = `Ilość haseł: <span class="d">${listahasel.length}</span> ∙ Kategoria: <span class="d">${kategory}</span>`
+	document.getElementById("statystyki").innerHTML = `Kategoria: <span class="d">${kategory}</span>`
 	
 	wypisz_haslo();
 }
@@ -268,16 +268,17 @@ function sprawdz(nr)
 	
 	//wygrana
 	if (haslo == haslo1) {
+		document.getElementById("statystyki").innerHTML = `KONIEC MECZU!`
 		document.getElementById("alfabet").innerHTML  = 'Tak jest! Podano prawidłowe hasło!<br /><br /><span class="reset" onclick="location.reload()">JESZCZE RAZ?</span>'
 		document.getElementById("type").innerHTML = '<button class="button" disabled><span class="d">L</span>osuj nowe hasło</button> <button class="button" onclick="window.location.href = `games.html`"><span class="d">W</span>róć do Rich Presence Games &lt;--</button> <button class="button" disabled><span class="d">O</span>dsłoń hasło</button>'
 		wygrana.play()
 	}
 	//przegrana
 	if (ile_skuch>=9) {
+		document.getElementById("statystyki").innerHTML = `KONIEC MECZU!`
 		przegrana.play()
 		document.getElementById("alfabet").innerHTML  = `Przegrana! Prawidłowe hasło: ${haslo} (${kategory})<br /><br /><span class="reset" onclick="location.reload()">JESZCZE RAZ?</span>`;
 		document.getElementById("type").innerHTML = '<button class="button" disabled><span class="d">L</span>osuj nowe hasło</button> <button class="button" onclick="window.location.href = `games.html`"><span class="d">W</span>róć do Rich Presence Games &lt;--</button> <button class="button" disabled><span class="d">O</span>dsłoń hasło</button>'
-		document.getElementById("statystyki").innerHTML = `Ilość haseł: <span class="d">${listahasel.length}</span>`
 	}
 }
 
@@ -286,6 +287,6 @@ function odslon() {
 	document.getElementById("plansza").innerHTML = haslo
 	document.getElementById("alfabet").innerHTML = `Odsłonięto hasło! (${haslo})<br />Kategoria: ${kategory}<br /><br /><span class="reset" onclick="location.reload()">LOSUJ NOWE!</span>`;
 	document.getElementById("type").innerHTML = '<button class="button" disabled><span class="d">L</span>osuj nowe hasło</button> <button class="button" onclick="window.location.href = `games.html`"><span class="d">W</span>róć do Rich Presence Games &lt;--</button> <button class="button" disabled><span class="d">O</span>dsłoń hasło</button>'
-	document.getElementById("statystyki").innerHTML = `Ilość haseł: <span class="d">${listahasel.length}</span>`
+	document.getElementById("statystyki").innerHTML = `ODSŁONIĘTO HASŁO!`
 	document.getElementById("szubienica").innerHTML = `<div style="width: ${(9 - ile_skuch) * 100}px; height: 43px; background-color: orange; text-align: center; border-style: none;"></div>`
 }

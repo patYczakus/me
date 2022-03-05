@@ -1,22 +1,14 @@
 {
+    // Użyj funkcji IntelliSense, aby uzyskać informacje o możliwych atrybutach.
+    // Najedź kursorem, aby wyświetlić opisy istniejących atrybutów.
+    // Aby uzyskać więcej informacji, odwiedź stronę: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
     "configurations": [
         {
-            "name": "404!",
+            "type": "pwa-msedge",
             "request": "launch",
-            "type": "pwa-chrome",
-            "url": "C:\/Users\/patry\/Desktop\/HTML\/Github\/me\/404.html",
-        },
-        {
-            "name": "index.html",
-            "request": "launch",
-            "type": "pwa-chrome",
-            "url": "C:\/Users\/patry\/Desktop\/HTML\/Github\/me\/index.html",
-        },
-        {
-            "name": "Szybkie uruchamianie",
-            "request": "launch",
-            "type": "pwa-chrome",
-            "url": "C:\/Users\/patry\/Desktop\/HTML\/Github\/me\/home.html",
+            "name": "Open index.html",
+            "file": "c:\\Users\\Patyczak\\Desktop\\HTML\\Github\\me\\index.html"
         }
     ]
 }

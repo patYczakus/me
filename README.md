@@ -4,3 +4,5 @@ Oto strona Patyczaka Rogalskiego - żadne kopiowanie zabronione!
 * JS
 * CSS
 * HTML
+## Wersja strony
+2.0 -> 3.0

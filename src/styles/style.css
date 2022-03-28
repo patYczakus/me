@@ -1,0 +1,82 @@
+/*  
+** Import fonts 
+** - Exo 2 [600]
+** - Roboto [500]
+** - Palette Mosaic
+*/
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap');
+
+/* Styles */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+* { box-sizing: border-box!important; }
+
+#header {
+    font-family: 'Palette Mosaic', cursive;
+    position: absolute;
+    padding: 8px;
+    background: black;
+    width: 100vw;
+    color: white;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+#nav {
+    font-family: serif;
+    margin-top: -3px;
+}
+
+#content {
+    width: 100vw;
+    height: 100vh;
+}
+
+#header button:not(.more) {
+    font-family: "Exo 2", "Roboto", sans-serif;
+    background: transparent;
+    border: transparent;
+    border-radius: 0;
+    border-bottom: 4px solid rgb(255 150 0 / 70%);
+    padding: 2px 7px;
+    margin-right: 5px;
+    color: white;
+    font-size: 70%;
+    transition: border-bottom 0.4s ease-in-out, background 0.5s 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+#header button.thisPage {
+    border-bottom: 4px solid rgb(100 255 100 / 70%);
+}
+
+#header button:not(.more):not(.thisPage):hover {
+    border-bottom: 7px solid rgb(0 70 225 / 70%);
+    background: rgb(255 255 255 / 30%);
+}
+
+#header button.more {
+    background: transparent;
+    border: transparent;
+    border-radius: 0;
+    padding: 0;
+    color: white;
+    font-size: 70%;
+    transition: background 0.5s ease-in-out;
+    cursor: pointer;
+    transform: rotate(90deg)
+}
+
+#header button.more:hover {
+    background: rgb(255 255 255 / 30%);
+}
+
+#nav {
+    margin-left: 15px;
+    text-align: right;
+}

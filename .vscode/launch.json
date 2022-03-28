@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "pwa-msedge",
+            "name": "Launch",
             "request": "launch",
-            "name": "Open index.html",
-            "file": "c:\\Users\\Patyczak\\Desktop\\HTML\\Github\\me\\index.html"
-        }
+            "type": "pwa-msedge",
+            "url": "c:\\Users\\Patyczak\\OneDrive\\Pulpit\\HTML\\Github\\me\\about\\home.html", //C:\Users\Patyczak\OneDrive\Pulpit\HTML\Github\me\about\home.html
+        },
     ]
 }

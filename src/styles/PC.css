@@ -11,3 +11,17 @@ body:not(.phone) #content {
 }
 
 body:not(.phone) #nav { width: /*calc(100% - 287.2px)*/ calc(100% - 196.81px); }
+
+body:not(.phone) .nav-box {
+    width: 25vw;
+    left: 75vw;
+    top: -200vh;
+}
+
+body:not(.phone) .nav-box.active {
+    top: 46px;
+}
+
+body:not(.phone) .exit {
+    font-size: 25px;
+}

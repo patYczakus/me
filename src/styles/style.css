@@ -67,16 +67,32 @@ body {
     padding: 0;
     color: white;
     font-size: 70%;
-    transition: background 0.5s ease-in-out;
     cursor: pointer;
     transform: rotate(90deg)
 }
+#header button.onlyBack{ transition: background 0.5s ease-in-out; }
 
-#header button.more:hover {
-    background: rgb(255 255 255 / 30%);
-}
+#header button.onlyBack:hover { background: rgb(255 255 255 / 30%); }
 
 #nav {
     margin-left: 15px;
     text-align: right;
+}
+
+.nav-box {
+    transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+    background: transparent;
+    position: absolute;
+    z-index: 3;
+    padding: 12px;
+    color: transparent;
+}
+
+.nav-box.active {
+    background: rgb(30 30 30);
+    color: white;
+}
+
+.nav-box .exit {
+    display: flex; justify-content: end; 
 }

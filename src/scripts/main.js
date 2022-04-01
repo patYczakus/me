@@ -1,14 +1,20 @@
 let text, i, iSys
 const navigateData = [
     { "name": "Home", "href": "home.html" },
-    { "name": "Pomoc w nauce", "href": "pomoc.html" },
-    { "name": "Pomoc w nauce", "href": "pomoc.html" },
-    { "name": "Rich Presence Games", "href": "games.html" },
-    { "name": "Pomoc w nauce", "href": "pomoc.html" },
-    { "name": "Pomoc w nauce", "href": "pomoc.html" },
-    { "name": "Pomoc w nauce", "href": "pomoc.html" },
-    { "name": "Pomoc w nauce", "href": "pomoc.html" },
 ]
+const set = {
+    navBox: function(number) {
+        text = ""
+        iSys = number
+        for (i=number; i<navigateData.length; i++) {
+            if (!window.location.href.endsWith(navigateData[iSys].href)) text += `<a href="${navigateData[iSys].href}">${navigateData[iSys].name}</a><br>`
+            else text += `${navigateData[iSys].name}<br>`
+            iSys++
+        }
+
+        document.getElementById("nav-box_info").innerHTML = text
+    }
+}
 
 window.onload = setTimeout(function(){
     checkMobileDevice()
@@ -18,6 +24,8 @@ function checkMobileDevice() {
     if (window.innerWidth+150 <= window.innerHeight) {
         document.body.classList.add('phone');
         document.getElementById("nav").innerHTML = `<button onclick="showNav()" class="more onlyBack">⋅⋅⋅</button>`
+
+        set.navBox(0)
     } else {
         text = ""
         iSys = 0
@@ -28,6 +36,7 @@ function checkMobileDevice() {
         }
         if (iSys < navigateData.length) text += `<button onclick="showNav()" class="more onlyBack">⋅⋅⋅</button>`
         document.getElementById("nav").innerHTML = text
+        if (iSys < navigateData.length) set.navBox(5)
     }
 }
 

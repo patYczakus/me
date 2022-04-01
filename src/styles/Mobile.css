@@ -7,6 +7,7 @@ body.phone #header {
 body.phone #content {
     padding: 6px;
     padding-top: 73px;
+    font-size: 25px;
 }
 
 body.phone #nav { width: calc(90% - 287.2px) /*calc(100% - 196.81px)*/; }
@@ -28,4 +29,10 @@ body.phone .nav-box.active {
 
 body.phone .exit {
     font-size: 45px;
+}
+
+body.phone #nav-box_info {
+    width: 100%;
+    height: calc(100% - 51.2px);
+    font-size: 25px;
 }

@@ -3,10 +3,12 @@
 ** - Exo 2 [600]
 ** - Roboto [500]
 ** - Palette Mosaic
+** - Audiovide
 */
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
 /* Styles */
 body {
@@ -35,10 +37,11 @@ body {
 #content {
     width: 100vw;
     height: 100vh;
+    font-family: "Exo 2", "Roboto", Roboto, sans-serif;
 }
 
 #header button:not(.more) {
-    font-family: "Exo 2", "Roboto", sans-serif;
+    font-family: 'Audiowide', cursive;
     background: transparent;
     border: transparent;
     border-radius: 0;
@@ -93,6 +96,19 @@ body {
     color: white;
 }
 
-.nav-box .exit {
-    display: flex; justify-content: end; 
+.nav-box .exit { display: flex; justify-content: end; }
+
+#nav-box_info {
+    font-family: 'Audiowide', cursive;
+    color: wheat; cursor: default;
+    overflow: auto;
 }
+#nav-box_info a { color: white }
+
+hr { 
+    border: 0px solid black;
+    background: rgb(147, 147, 147); 
+    height: 3px;
+}
+
+h1, h2, h3, h4, h5, h6 { margin-left: 2.5%; margin-top: 0.4rem; }

@@ -17,10 +17,10 @@ body {
 }
 
 * { box-sizing: border-box!important; }
+*::-webkit-scrollbar { display: none; }
 
 #header {
     font-family: 'Palette Mosaic', cursive;
-    position: absolute;
     padding: 8px;
     background: black;
     width: 100vw;
@@ -38,6 +38,7 @@ body {
     width: 100vw;
     height: 100vh;
     font-family: "Exo 2", "Roboto", Roboto, sans-serif;
+    overflow: auto;
 }
 
 #header button:not(.more) {
@@ -112,3 +113,17 @@ hr {
 }
 
 h1, h2, h3, h4, h5, h6 { margin-left: 2.5%; margin-top: 0.4rem; }
+h1 {font-size: 250%;}
+h2 {font-size: 200%;}
+h3 {font-size: 160%;}
+h4 {font-size: 120%;}
+h5 {font-size: 80%;}
+h6 {font-size: 50%;}
+
+#progress_scroll {
+    height: 5px;
+    background: orange;
+    width: 100%;
+}
+
+ul { margin: 5px 0; }

@@ -2,6 +2,7 @@ let text, i, iSys
 const navigateData = [
     { "name": "Home", "href": "home.html" },
 ]
+
 const set = {
     navBox: function(number) {
         text = ""
@@ -18,7 +19,8 @@ const set = {
 
 window.onload = setTimeout(function(){
     checkMobileDevice()
-}, 0)
+    proces()
+}, 100)
 
 function checkMobileDevice() {
     if (window.innerWidth+150 <= window.innerHeight) {
@@ -46,4 +48,27 @@ function showNav() {
 
 function hideNav()  {
     document.getElementsByClassName("nav-box")[0].classList.remove("active")
+}
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+function scrollProgress() {
+    const totalheight_Page = document.getElementById("content").scrollHeight
+    const currentDistanceFromTop = document.getElementById("content").scrollTop
+
+    const windowHeight = document.getElementById("content").clientHeight
+
+    let scrolledPrestange = (currentDistanceFromTop / (totalheight_Page - windowHeight)) * 100
+
+    document.getElementById("progress_scroll").style.width = `${scrolledPrestange}%`
+}
+
+
+
+
+function proces() {
+    scrollProgress()
+    setTimeout(function(){
+        proces()
+    }, 10)
 }

@@ -29,6 +29,7 @@ body {
     background: white;
     color: black;
     transition: margin-left 0.3s 1s;
+    font-family: 'Palette Mosaic', cursive;
 }
 
 #header {
@@ -38,7 +39,7 @@ body {
     width: 100vw;
     color: white;
     box-sizing: border-box;
-    z-index: 1;
+    z-index: 2137;
 }
 
 #nav {
@@ -86,6 +87,7 @@ body {
     cursor: pointer;
     transform: rotate(90deg)
 }
+
 #header button.onlyBack{ transition: background 0.5s ease-in-out; }
 
 #header button.onlyBack:hover { background: rgb(255 255 255 / 30%); }

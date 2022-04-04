@@ -6,4 +6,4 @@ Oto strona Patryka - żadne kopiowanie zabronione!
 * HTML
 ## Wersja strony
 3.0<br>
-Bulid #H01
+Bulid #H01CA

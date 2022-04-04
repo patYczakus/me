@@ -18,9 +18,24 @@ const set = {
 }
 
 window.onload = setTimeout(function(){
-    checkMobileDevice()
-    proces()
-}, 100)
+    try {
+        checkMobileDevice()
+        proces()
+    } catch (err) {
+        try {
+            checkMobileDevice()
+            proces()
+        } catch (err) {
+            try {
+                checkMobileDevice()
+                proces()
+            } catch (err) {
+                console.error(err)
+                checkMobileDevice()
+            }
+        }
+    }
+}, 300)
 
 function checkMobileDevice() {
     if (window.innerWidth+150 <= window.innerHeight) {
@@ -40,6 +55,8 @@ function checkMobileDevice() {
         document.getElementById("nav").innerHTML = text
         if (iSys < navigateData.length) set.navBox(5)
     }
+
+    document.getElementById("banner").style.marginLeft = "-120vw"
 }
 
 function showNav() {

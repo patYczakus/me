@@ -36,3 +36,7 @@ body.phone #nav-box_info {
     height: calc(100% - 51.2px);
     font-size: 25px;
 }
+
+body.phone #banner {
+    font-size: 300%;
+}

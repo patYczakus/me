@@ -56,7 +56,7 @@ function checkMobileDevice() {
         if (iSys < navigateData.length) set.navBox(5)
     }
 
-    document.getElementById("banner").style.marginLeft = "-120vw"
+    document.getElementById("banner").style.marginLeft = "-2000vw"
 }
 
 function showNav() {

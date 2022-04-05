@@ -77,7 +77,7 @@ function scrollProgress() {
 
     let scrolledPrestange = (currentDistanceFromTop / (totalheight_Page - windowHeight)) * 100
 
-    document.getElementById("progress_scroll").style.width = `${scrolledPrestange}%`
+    document.getElementById("progress_scroll").style.width = `${Math.round(scrolledPrestange)}%`
 }
 
 

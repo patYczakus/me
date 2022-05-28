@@ -1,6 +1,7 @@
 let text, i, iSys
 const navigateData = [
     { "name": "Home", "href": "home.html" },
+    { "name": "Rich Presence Games", "href": "games.html" },
 ]
 
 const set = {
@@ -35,7 +36,7 @@ window.onload = setTimeout(function(){
             }
         }
     }
-}, 300)
+}, 500)
 
 function checkMobileDevice() {
     if (window.innerWidth+150 <= window.innerHeight) {
@@ -46,7 +47,7 @@ function checkMobileDevice() {
     } else {
         text = ""
         iSys = 0
-        for (i=0; i<navigateData.length && i<5; i++) {
+        for (i=0; i<navigateData.length && i<3; i++) {
             if (!window.location.href.endsWith(navigateData[iSys].href)) text += `<button onclick="window.open('${navigateData[iSys].href}', '_self')">${navigateData[iSys].name}</button>`
             else text += `<button class="thisPage onlyBack">${navigateData[iSys].name}</button>`
             iSys++
@@ -80,12 +81,35 @@ function scrollProgress() {
     document.getElementById("progress_scroll").style.width = `${Math.round(scrolledPrestange)}%`
 }
 
-
-
-
 function proces() {
     scrollProgress()
     setTimeout(function(){
         proces()
     }, 10)
+}
+
+function openAtNewWindow(adres, nazwa, szerokosc, wysokosc, center = Boolean(false))
+{
+    var fullScreen = false;
+    if( isNaN(szerokosc) || szerokosc == 0 ) {
+        var szerokosc = screen.width;
+        fullScreen = true;
+    }
+    if( isNaN(wysokosc) || wysokosc == 0 ) {
+        var wysokosc = screen.height;
+        fullScreen = true;
+    }
+    okno=window.open(adres,nazwa,'width=' + szerokosc + ',height=' + wysokosc + ',resizable=yes,scrollbars');
+    // for chrome in windows
+    if (fullScreen) {
+        okno.moveTo(0,0);
+        okno.resizeTo(szerokosc, wysokosc);
+    }
+
+    if (center) {
+        okno.moveTo(document.body.clientWidth/2 - szerokosc/1.9, document.getElementById("content").clientHeight/1.7 - wysokosc/2);
+        okno.resizeTo(szerokosc, wysokosc);
+    }
+    
+    okno.focus();
 }

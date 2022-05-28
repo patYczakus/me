@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@600&display=swap');
+
+*, *::after, *::before { 
+    font-family: "Exo 2", sans-serif; 
+    box-sizing: border-box;
+    font-size: 25px;
+}
+
+body {
+    margin: 0;
+    padding: 8px;
+    background: wheat;
+    width: 100vw;
+    height: 100vh;
+}
+
+td, th {
+    padding: 5px;
+    background: lightgray;
+    border: 2px solid black;
+}
+
+table#shop td { font-size: 20px; }
+table#shop th { font-size: 35px; }
+
+#mainBtn {
+    width: 100px;
+    border: none;
+    border-radius: 0;
+    background: rgb(206, 186, 149);
+    cursor: pointer;
+}
+
+button.buttonShop {
+    background: rgb(200, 200 ,200 );
+    cursor: pointer;
+    border: none;
+}

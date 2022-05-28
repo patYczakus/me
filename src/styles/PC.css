@@ -6,9 +6,12 @@ body:not(.phone) #header {
 }
 
 body:not(.phone) #content {
-    padding: 12px;
-    padding-top: 56px;
+    padding-top: 46px;
     font-size: 20px;
+}
+
+body:not(.phone) #content div {
+    padding: 12px;
 }
 
 body:not(.phone) #nav { width: /*calc(100% - 287.2px)*/ calc(100% - 196.81px); }

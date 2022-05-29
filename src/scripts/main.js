@@ -18,25 +18,7 @@ const set = {
     }
 }
 
-window.onload = setTimeout(function(){
-    try {
-        checkMobileDevice()
-        proces()
-    } catch (err) {
-        try {
-            checkMobileDevice()
-            proces()
-        } catch (err) {
-            try {
-                checkMobileDevice()
-                proces()
-            } catch (err) {
-                console.error(err)
-                checkMobileDevice()
-            }
-        }
-    }
-}, 500)
+window.onload = checkIframe()
 
 function checkMobileDevice() {
     if (window.innerWidth+150 <= window.innerHeight) {
@@ -112,4 +94,31 @@ function openAtNewWindow(adres, nazwa, szerokosc, wysokosc, center = Boolean(fal
     }
     
     okno.focus();
+}
+
+function checkIframe() {
+    if ( window.location !== window.parent.location ) { 
+        alert(`Blokada przeciw iframemem!\n\nWykryto korzystanie z osadzenia - ta blokada służy do blokowania zawartości z osadzenia, ponieważ się ona poprawnie się nie wyświetli. Aby temu zapobiec, włącz stronę normalnie.`)
+        setTimeout(() => { document.body.innerHTML = `<div id="banner" class><a onclick="window.parent.location.href = window.location.href">Idź do strony</a></div>` }, 500)
+    } else {
+        setTimeout(function(){
+            try {
+                checkMobileDevice()
+                proces()
+            } catch (err) {
+                try {
+                    checkMobileDevice()
+                    proces()
+                } catch (err) {
+                    try {
+                        checkMobileDevice()
+                        proces()
+                    } catch (err) {
+                        console.error(err)
+                        checkMobileDevice()
+                    }
+                }
+            }
+        }, 500)
+    }
 }

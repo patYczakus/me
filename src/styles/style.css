@@ -28,7 +28,7 @@ body {
     height: 100vh;
     background: white;
     color: black;
-    transition: margin-left 1.7s 1s;
+    transition: margin-left 1.7s;
     font-family: 'Palette Mosaic', cursive;
     font-size: 250%;
     z-index: 2137;
@@ -54,6 +54,35 @@ body {
     height: 100vh;
     font-family: "Exo 2", "Roboto", Roboto, sans-serif;
     overflow: auto;
+}
+
+#content a {
+    display: inline-block;
+    background-color: transparent;
+    color: rgb(0, 91, 8);
+    padding: 1px 0;
+    height: 20px;
+    cursor: pointer;
+    font-family: "Exo 2", "Roboto", Roboto, sans-serif;
+}
+
+#content a::after, #content a::before {
+    content: "";
+    background-color: white;
+    display: inline-block;
+    width: 5px;
+    height: 0;
+    transition: 
+        height 0.3s cubic-bezier(0,.07,.1,1.02),
+        background 0.3s cubic-bezier(0,.07,.1,1.02);
+}
+
+#content a::after { margin-left: 3px; }
+#content a::before { margin-right: 3px; }
+
+#content a:hover::after, #content a:hover::before {
+    height: 100%;
+    background: black;
 }
 
 #header button:not(.more) {
@@ -148,32 +177,4 @@ video#hourBanner {
     width: 100%;
     height: 350px;
     object-fit: cover;
-}
-
-#content a {
-    display: inline-block;
-    background-color: transparent;
-    color: rgb(0, 91, 8);
-    padding: 1px 0;
-    height: 20px;
-    cursor: pointer;
-}
-
-#content a::after, #content a::before {
-    content: "";
-    background-color: white;
-    display: inline-block;
-    width: 5px;
-    height: 0;
-    transition: 
-        height 0.3s cubic-bezier(0,.07,.1,1.02),
-        background 0.3s cubic-bezier(0,.07,.1,1.02);
-}
-
-#content a::after { margin-left: 3px; }
-#content a::before { margin-right: 3px; }
-
-#content a:hover::after, #content a:hover::before {
-    height: 100%;
-    background: black;
 }

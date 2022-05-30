@@ -5,7 +5,7 @@ var random = function(min = Number(1), max = Number(10)) {
 }
 
 var levels = {
-    clicks: 1
+    clicks: 1,
 }
 
 var shop = [
@@ -20,7 +20,7 @@ var shop = [
         function: function(){
             levels.clicks = levels.clicks + 1
         }
-    }
+    },
 ]
 
 function createShop() {

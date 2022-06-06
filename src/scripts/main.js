@@ -30,7 +30,7 @@ function checkMobileDevice() {
         text = ""
         iSys = 0
         for (i=0; i<navigateData.length && i<3; i++) {
-            if (!window.location.href.endsWith(navigateData[iSys].href)) text += `<button onclick="window.open('${navigateData[iSys].href}', '_self')">${navigateData[iSys].name}</button>`
+            if (!window.location.pathname.endsWith(navigateData[iSys].href)) text += `<button onclick="window.open('${navigateData[iSys].href}', '_self')">${navigateData[iSys].name}</button>`
             else text += `<button class="thisPage onlyBack">${navigateData[iSys].name}</button>`
             iSys++
         }
@@ -70,8 +70,7 @@ function proces() {
     }, 10)
 }
 
-function openAtNewWindow(adres, nazwa, szerokosc, wysokosc, center = Boolean(false))
-{
+function openAtNewWindow(adres, nazwa, szerokosc, wysokosc, center = Boolean(false)) {
     var fullScreen = false;
     if( isNaN(szerokosc) || szerokosc == 0 ) {
         var szerokosc = screen.width;

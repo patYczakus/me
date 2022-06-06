@@ -23,9 +23,8 @@ function openAtNewWindow(adres, nazwa, szerokosc, wysokosc, center = Boolean(fal
     okno.focus();
 }
 
-window.onload = function(){ 
-    if (window.location.hash == "#runGame_Clicker") {
-        openAtNewWindow('../games/clicker/game.html','Clicker',920,650,true);
-        setTimeout(() => { document.getElementById("nav").innerHTML = "[ Uruchomione przez polecenie ]" }, 500)
+window.onload = setTimeout(function(){ 
+    if (window.location.hash == "#run-TownClicker") {
+        openAtNewWindow('../games/town-clicker/game.html','Clicker',0,0)
     }
-}
+}, 100)

@@ -5,5 +5,4 @@ Oto strona Patryka - żadne kopiowanie zabronione!
 * CSS
 * HTML
 ## Wersja strony
-3.0<br>
-Bulid #H01CB
+3.2.4

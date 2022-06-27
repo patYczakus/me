@@ -178,3 +178,40 @@ video#hourBanner {
     height: 350px;
     object-fit: cover;
 }
+
+#los-dowcipów #qu {
+    cursor: pointer;
+    padding: 0;
+    display: inline-block;
+    background: rgb(147, 147, 147);
+    color: transparent;
+    transition:
+        color 0.1s linear,
+        background 0.1s linear;
+}
+
+#los-dowcipów #qu.odslon {
+    cursor: auto;
+    color: black;
+    background: transparent;
+}
+
+/* Loading icon */
+#loading {
+  display: inline-block;
+  margin: 15px;
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(0,0,0,.3);
+  border-radius: 50%;
+  border-top-color: #000;
+  animation: spin 0.5s ease-in-out infinite;
+  -webkit-animation: spin 0.5s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}

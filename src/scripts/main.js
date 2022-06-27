@@ -2,6 +2,7 @@ let text, i, iSys
 const navigateData = [
     { "name": "Home", "href": "home.html" },
     { "name": "Rich Presence Games", "href": "games.html" },
+    { "name": "Dowcipy na co dzień", "href": "dowcipy.html"}
 ]
 
 const set = {
@@ -22,7 +23,7 @@ window.onload = checkIframe()
 
 function checkMobileDevice() {
     setTimeout(() => {
-        if (window.innerWidth+150 <= window.innerHeight) {
+        if (window.innerWidth <= window.innerHeight) {
             document.body.classList.add('phone');
             document.getElementById("nav").innerHTML = `<button onclick="showNav()" class="more onlyBack">⋅⋅⋅</button>`
 
@@ -31,7 +32,7 @@ function checkMobileDevice() {
             text = ""
             iSys = 0
             for (i=0; i<navigateData.length && i<3; i++) {
-                if (!window.location.pathname.endsWith(navigateData[iSys].href)) text += `<button onclick="window.open('${navigateData[iSys].href}', '_self')">${navigateData[iSys].name}</button>`
+                if (!location.pathname.endsWith(navigateData[iSys].href)) text += `<button onclick="window.open('${navigateData[iSys].href}', '_self')">${navigateData[iSys].name}</button>`
                 else text += `<button class="thisPage onlyBack">${navigateData[iSys].name}</button>`
                 iSys++
             }
@@ -54,7 +55,7 @@ function hideNav()  {
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-function openAtNewWindow(adres, nazwa, szerokosc, wysokosc, center = Boolean(false)) {
+function openAtNewWindow(adres, nazwa, szerokosc, wysokosc) {
     var fullScreen = false;
     if( isNaN(szerokosc) || szerokosc == 0 ) {
         var szerokosc = screen.width;
@@ -70,11 +71,6 @@ function openAtNewWindow(adres, nazwa, szerokosc, wysokosc, center = Boolean(fal
         okno.moveTo(0,0);
         okno.resizeTo(szerokosc, wysokosc);
     }
-
-    if (center) {
-        okno.moveTo(document.body.clientWidth/2 - szerokosc/1.9, document.getElementById("content").clientHeight/1.7 - wysokosc/2);
-        okno.resizeTo(szerokosc, wysokosc);
-    }
     
     okno.focus();
 }
@@ -84,6 +80,6 @@ function checkIframe() {
         alert(`Blokada przeciw iframemem!\n\nWykryto korzystanie z osadzenia - ta blokada służy do blokowania zawartości z osadzenia, ponieważ się ona poprawnie się nie wyświetli. Aby temu zapobiec, włącz stronę normalnie.`)
         setTimeout(() => { document.body.innerHTML = `<div id="banner" class><a onclick="window.parent.location.href = window.location.href">Idź do strony</a></div>` }, 500)
     } else {
-        checkMobileDevice()
+        setTimeout(checkMobileDevice(), 700)
     }
 }

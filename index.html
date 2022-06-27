@@ -6,7 +6,7 @@
         <title>Patryktopek</title>
         <meta name="description" content="Portfolio Patryka. Znajdziesz m.in. gry, informacje, kontakt z nim lub pomoc w nauce" />
         <script>
-            function checkIframe() {
+            function main() {
                 if ( window.location == window.parent.location ) return window.location.href = `about/home.html`
 
                 alert(`Blokada przeciw iframemem!\n\nWykryto korzystanie z osadzenia - ta blokada służy do blokowania zawartości z osadzenia, ponieważ się ona poprawnie się nie wyświetli. Aby temu zapobiec, włącz stronę normalnie.`)
@@ -20,6 +20,6 @@
             }
         </style>
     </head>
-    <body onload="checkIframe()">
+    <body onload="main()">
     </body>
 </html>

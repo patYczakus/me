@@ -1,4 +1,6 @@
-let text, i, iSys
+let text = ""
+let i, iSys, windowWidth = 0
+var isEnd = false
 const navigateData = [
     { "name": "Home", "href": "home.html" },
     { "name": "Rich Presence Games", "href": "games.html" },
@@ -16,12 +18,42 @@ const set = {
         }
 
         document.getElementById("nav-box_info").innerHTML = text
+    },
+    nav: function() {            
+        text = ""
+        iSys = 0
+        for (i=0; i<navigateData.length && i<3; i++) {
+            if (!location.pathname.endsWith(navigateData[iSys].href)) text += `<button onclick="window.open('${navigateData[iSys].href}', '_self')">${navigateData[iSys].name}</button>`
+            else text += `<button class="thisPage onlyBack">${navigateData[iSys].name}</button>`
+            iSys++
+        }
+        if (iSys < navigateData.length) text += `<button onclick="showNav()" class="more onlyBack">⋅⋅⋅</button>`
+        document.getElementById("nav").innerHTML = text
+        if(iSys < navigateData.length) set.navBox(3)
     }
 }
 
 window.onload = checkIframe()
 
 function checkMobileDevice() {
+    function theNav() {
+        setTimeout(() => {
+            if (window.innerWidth == windowWidth) return theNav()
+            
+            windowWidth = window.innerWidth
+
+            if (window.innerWidth <= 813) {
+                document.getElementById("nav").innerHTML = `<button onclick="showNav()" class="more onlyBack" style="margin-top: 5px">⋅⋅⋅</button>`
+
+                set.navBox(0)
+            } else {
+                set.nav()
+            }
+
+            theNav()
+        }, 50)
+    }
+
     setTimeout(() => {
         if (window.innerWidth <= window.innerHeight) {
             document.body.classList.add('phone');
@@ -29,19 +61,13 @@ function checkMobileDevice() {
 
             set.navBox(0)
         } else {
-            text = ""
-            iSys = 0
-            for (i=0; i<navigateData.length && i<3; i++) {
-                if (!location.pathname.endsWith(navigateData[iSys].href)) text += `<button onclick="window.open('${navigateData[iSys].href}', '_self')">${navigateData[iSys].name}</button>`
-                else text += `<button class="thisPage onlyBack">${navigateData[iSys].name}</button>`
-                iSys++
-            }
-            if (iSys < navigateData.length) text += `<button onclick="showNav()" class="more onlyBack">⋅⋅⋅</button>`
-            document.getElementById("nav").innerHTML = text
-            if (iSys < navigateData.length) set.navBox(5)
+            set.nav()
+
+            theNav()
         }
 
         document.getElementById("banner").style.marginLeft = "-2000vw"
+
     }, 100)
 }
 
@@ -80,6 +106,26 @@ function checkIframe() {
         alert(`Blokada przeciw iframemem!\n\nWykryto korzystanie z osadzenia - ta blokada służy do blokowania zawartości z osadzenia, ponieważ się ona poprawnie się nie wyświetli. Aby temu zapobiec, włącz stronę normalnie.`)
         setTimeout(() => { document.body.innerHTML = `<div id="banner" class><a onclick="window.parent.location.href = window.location.href">Idź do strony</a></div>` }, 500)
     } else {
-        setTimeout(checkMobileDevice(), 700)
+        function run() {
+            function execute() {
+                setTimeout(() => {
+                    if (isEnd) return;
+                    try {
+                        checkMobileDevice()
+                        if (errorlist.length !== 0) console.warn("Pojawiły się w trakcie błędy. Oto cała lista błędów: ", errorlist)
+                        else console.log("W trakcie uruchamiania skryptu nie pojawiły się błędy")
+                        return isEnd = true
+                    } catch (err) {
+                        errorlist[errorlist.length] = err
+                        execute()
+                    }
+                }, 100)
+            }
+
+            var errorlist = [] 
+            execute()
+        }
+
+        run()
     }
 }

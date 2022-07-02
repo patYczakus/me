@@ -39,10 +39,15 @@
         <div style="position:fixed;z-index:-2;">
             <div id="content">
                 <div>
-                    <div id="los-dowcipów" style="width: 70%; float: left;">Kliknij przycisk <button onclick="walnijDowcip()">Losuj</button>, aby wylosować dowcip</div>
+                    <div id="los-dowcipów" style="width: 70%; float: left;">
+                        Kliknij przycisk <button onclick="walnijDowcip()">Losuj</button>, aby wylosować dowcip<br />
+                        Pamiętaj, że w dowcipach-pytaniach po kliknięciu na szary blok <div id="qu" onclick="reviev()">(czyli w spoilery)</div> odsłoni Ci się odpowiedź
+                    </div>
                     <div style="width: 30%; float: left;">
-                        <button style="width: 100%" onclick="walnijDowcip()">Losuj</button>
+                        <button style="width: 100%" onclick="walnijDowcip()">Losuj dowcip!</button>
+                        <button style="width: 100%" onclick="wybierzDowcip()">Wybierz dowcip!</button>
                         <button style="width: 100%" onclick="openAtNewWindow('https:\/\/forms.gle/JxSECo8FJrGvgMuY8')">Dodaj dowcip!</button>
+                        <hr style="margin-bottom: 0;" />
                         <button style="width: 100%" onclick="alert(`Ilość dowcipów: ${dowcipy.length}`)">Statystyki</button>
                     </div>
                 </div>

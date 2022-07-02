@@ -18,11 +18,11 @@ var levels = {
 var shop = [
     {
         itemName: "Mieszkanie",
-        itemDescription: "Buduje dom i od razu dodaje mieszkańców\nPo zakupieniu kupno zwiększa się o 100$",
+        itemDescription: "Buduje dom i od razu dodaje mieszkańców",
         level: { enable: false },
         money: {
             cost: 150,
-            upTo: [ 100, "ADD" ]
+            upTo: [ 0, "ADD" ]
         },
         function: function(){
             indexes.users = indexes.users + random(1, 6)
@@ -31,11 +31,11 @@ var shop = [
     },
     {
         itemName: "Kamienica",
-        itemDescription: "Buduje kamienicę i od razu dodaje mieszkańców\nPo zakupieniu kupno zwiększa się o 400$",
+        itemDescription: "Buduje kamienicę i od razu dodaje mieszkańców",
         level: { enable: false },
         money: {
             cost: 600,
-            upTo: [ 400, "ADD" ]
+            upTo: [ 0, "ADD" ]
         },
         function: function(){
             indexes.users = indexes.users + random(10, 75)
@@ -44,11 +44,11 @@ var shop = [
     },
     {
         itemName: "Blok",
-        itemDescription: "Buduje blok i od razu dodaje mieszkańców\nPo zakupieniu kupno zwiększa się o 1000$",
+        itemDescription: "Buduje blok i od razu dodaje mieszkańców",
         level: { enable: false },
         money: {
             cost: 1500,
-            upTo: [ 1000, "ADD" ]
+            upTo: [ 0, "ADD" ]
         },
         function: function(){
             indexes.users = indexes.users + random(40, 400)
@@ -96,7 +96,7 @@ function timeSet(){
 }
 
 function getCoins(){
-    indexes.coins = indexes.coins + (random(5, 50) * levels.clicks)
+    indexes.coins = indexes.coins + Math.floor((random(5, 50) * levels.clicks * ((indexes.users - 6) / 10000 + 1)))
     document.getElementById("mainBtn").disabled = "true"
     timeRing1()
 }

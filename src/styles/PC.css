@@ -34,3 +34,7 @@ body:not(.phone) #nav-box_info {
     font-size: 15px;
     max-height: 200px;
 }
+
+body:not(.phone) *::-webkit-scrollbar {
+    display: none;
+}

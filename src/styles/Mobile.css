@@ -13,7 +13,7 @@ body.phone #content div {
     padding: 6px;
 }
 
-body.phone #nav { width: calc(90% - 287.2px) /*calc(100% - 196.81px)*/; }
+body.phone #nav { width: calc(100% - 307.2px) /*calc(100% - 196.81px)*/; }
 
 body.phone #header button.more {
     width: 38px;

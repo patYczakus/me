@@ -1,3 +1,5 @@
+let windowWidth = -1
+
 let indexes = {
     coins: 50,
     users: 6,
@@ -72,11 +74,17 @@ var shop = [
 function createShop() {
     iSub = 0
     text = ""
-    for(i=0; i<shop.length; i++) {
-        if (shop[iSub].level.enable) text += `<tr><td>${iSub+1}.</td><th>${shop[iSub].itemName}</th><td>${shop[iSub].itemDescription.replace("\n", "<br />")}</td><td class="shopItemInfo">Obecny level: ${shop[iSub].level.index}<br />Koszt: ${shop[iSub].money.cost}$<td><button class="buttonShop" type="button" onclick="buyAtShop(${iSub})">Kup!</button></td></tr>\n`
-        else text += `<tr><td>${iSub+1}.</td><th>${shop[iSub].itemName}</th><td>${shop[iSub].itemDescription.replace("\n", "<br />")}</td><td class="shopItemInfo">Koszt: ${shop[iSub].money.cost}$<td><button class="buttonShop" type="button" onclick="buyAtShop(${iSub})">Kup!</button></td></tr>\n`
+    if (window.innerWidth > 671) for (i=0; i<shop.length; i++) {
+        if (shop[iSub].level.enable) text += `<tr><td>${iSub+1}.</td><th class="big">${shop[iSub].itemName}</th><td>${shop[iSub].itemDescription.replace("\n", "<br />")}</td><td class="shopItemInfo">Obecny level: ${shop[iSub].level.index}<br />Koszt: ${shop[iSub].money.cost}$<td><button class="buttonShop" type="button" onclick="buyAtShop(${iSub})">Kup!</button></td></tr>\n`
+        else text += `<tr><td>${iSub+1}.</td><th class="big">${shop[iSub].itemName}</th><td>${shop[iSub].itemDescription.replace("\n", "<br />")}</td><td class="shopItemInfo">Koszt: ${shop[iSub].money.cost}$<td><button class="buttonShop" type="button" onclick="buyAtShop(${iSub})">Kup!</button></td></tr>\n`
         iSub++
     }
+    else for (i=0; i<shop.length; i++) {
+        if (shop[iSub].level.enable) text += `<tr><td class="small"><div class="big">${iSub+1}. ${shop[iSub].itemName}</div><div>${shop[iSub].itemDescription.replace("\n", "<br />")}</div><div>Obecny level: ${shop[iSub].level.index}<br />Koszt: ${shop[iSub].money.cost}$<br /><button class="buttonShop" type="button" onclick="buyAtShop(${iSub})" style="margin-top: 7px; width: 50% ">Kup!</button></div></td></tr>\n`
+        else text += `<tr><td class="small"><div class="big">${iSub+1}. ${shop[iSub].itemName}</div><div>${shop[iSub].itemDescription.replace("\n", "<br />")}</div><div>Koszt: ${shop[iSub].money.cost}$<br /><button class="buttonShop" type="button" onclick="buyAtShop(${iSub})" style="margin-top: 7px; width: 50% ">Kup!</button></div></td></tr>\n`
+        iSub++
+    }
+
     document.getElementById("shop").innerHTML = text
 }
 
@@ -133,13 +141,19 @@ function buyAtShop(id) {
 
 function reaction_buttonInShop(id, color) {
     document.getElementsByClassName("buttonShop")[id].style.background = color
-    setTimeout(() => {document.getElementsByClassName("buttonShop")[id].style = ""}, 500)
+    setTimeout(() => {document.getElementsByClassName("buttonShop")[id].style.background = "rgb(0, 0, 0, 0.2)"}, 500)
 }
 
 function reloadIndexes() {
     setTimeout(() => {
         document.getElementById("money").innerText = `${indexes.coins}$`
         document.getElementById("town").innerHTML = `<td>👥 ${indexes.users}</td><td>🏘️ ${indexes.bulids}</td>`
+        
+        if (windowWidth !== window.innerWidth) {
+            createShop()
+            windowWidth = window.innerWidth
+        }
+
         reloadIndexes()
-    }, 20)
+    }, 5)
 }

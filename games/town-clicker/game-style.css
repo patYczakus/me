@@ -12,6 +12,7 @@ body {
     background: wheat;
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
 }
 
 td, th {
@@ -20,19 +21,22 @@ td, th {
     border: 2px solid black;
 }
 
-table#shop td { font-size: 20px; }
-table#shop th { font-size: 35px; }
+table#shop td.small { width: calc(100vw - 36px); }
+table#shop :not(.big) { font-size: 20px; }
+table#shop .big { font-size: 35px; }
+table#shop div { text-align: center; margin: 5px 0; }
 
 #mainBtn {
     width: 100px;
     border: none;
-    border-radius: 0;
-    background: rgb(206, 186, 149);
+    border-radius: 0.3rem;
+    background: rgba(0, 0, 0, 0.15);
     cursor: pointer;
 }
 
 button.buttonShop {
-    background: rgb(200, 200 ,200 );
+    background: rgb(0, 0, 0, 0.2);
+    border-radius: 0.3rem;
     cursor: pointer;
     border: none;
 }

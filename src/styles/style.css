@@ -37,6 +37,7 @@ body {
 #header {
     font-family: 'Palette Mosaic', cursive;
     position: fixed;
+    display: inline-block;
     padding: 8px;
     background: black;
     width: 100%;

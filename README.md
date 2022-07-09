@@ -5,4 +5,4 @@ Oto strona Patryka - żadne kopiowanie zabronione!
 * CSS
 * HTML
 ## Wersja strony
-3.2.6
+3.2.7

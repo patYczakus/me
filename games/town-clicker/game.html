@@ -23,20 +23,26 @@
     <body onload="timeSet(); createShop(); reloadIndexes()">
         <table>
             <tr>
-                <td rowspan="3">Statystyki</td>
-                <td id="money" colspan="2">...</td>
+                <th rowspan="100">Statystyki</td>
+                <td id="money" colspan="3">...</td>
             </tr>
             <tr>
-                <td id="time" colspan="2">...</td>
+                <td id="time" colspan="3">...</td>
             </tr>
             <tr id="town">
                 <td>...</td>
                 <td>...</td>
             </tr>
+            <tr id="bank">
+                <td>...</td>
+                <td>...</td>
+            </tr>
         </table>
         <br />
-        <div><button type="button" id="mainBtn" onclick="getCoins()">Click!</button></div>
-            <h1>Sklep</h1>
-            <table id="shop"></table>
+        <div id="main">
+            <div><button type="button" id="mainBtn" onclick="getCoins()">Click!</button></div>
+        </div>
+        <h1>Sklep</h1>
+        <table id="shop"></table>
     </body>
 </html>

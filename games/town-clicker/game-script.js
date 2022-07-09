@@ -2,6 +2,7 @@ let windowWidth = -1
 
 let indexes = {
     coins: 50,
+    bankCoins: 0,
     users: 6,
     bulids: 3,
 }
@@ -13,22 +14,24 @@ var random = function(min = Number(1), max = Number(10)) {
 
 var levels = {
     clicks: 1,
-    farm: 0,
-    fabric: 0,
+    bank: {
+        values: 1,
+        bulids: 0,
+    },
 }
 
 var shop = [
     {
-        itemName: "Mieszkanie",
-        itemDescription: "Buduje dom i od razu dodaje mieszkańców",
+        itemName: "Trzy mieszkania",
+        itemDescription: "Buduje trzy mieszkania i od razu dodaje mieszkańców",
         level: { enable: false },
         money: {
             cost: 150,
             upTo: [ 0, "ADD" ]
         },
         function: function(){
-            indexes.users = indexes.users + random(1, 6)
-            indexes.bulids = indexes.bulids + 1
+            indexes.users = indexes.users + random(3, 18)
+            indexes.bulids = indexes.bulids + 3
         }
     },
     {
@@ -41,7 +44,7 @@ var shop = [
         },
         function: function(){
             indexes.users = indexes.users + random(10, 75)
-            indexes.bulids = indexes.bulids + 1
+            indexes.bulids++
         }
     },
     {
@@ -54,13 +57,13 @@ var shop = [
         },
         function: function(){
             indexes.users = indexes.users + random(40, 400)
-            indexes.bulids = indexes.bulids + 1
+            indexes.bulids++
         }
     },
     {
         itemName: "Wartościowość +1",
-        itemDescription: "Po zakupieniu zarobki zwiększą się na wskazany level",
-        level: { enable: true, index: 1 },
+        itemDescription: "Po zakupieniu zarobki zwiększą się na wskazany poziom",
+        level: { enable: true, index: 1, max: 100 },
         money: {
             cost: 500,
             upTo: [ 3, "MULTIPLY" ]
@@ -69,19 +72,55 @@ var shop = [
             levels.clicks = levels.clicks + 1
         }
     },
+    {
+        itemName: "Bank",
+        itemDescription: "Buduje bank, który powoduje większe zarobki.<br />Pierwsze postawienie dodaje przycisk.<br />Po zakupieniu zwiększają się mieszkańcy, ale też i kupno o 470$!",
+        level: { enable: false },
+        money: {
+            cost: 10000,
+            upTo: [ 470, "ADD" ]
+        },
+        function: function(){
+            indexes.users = indexes.users + random(3, 10)
+            indexes.bulids++
+            if (levels.bank.bulids == 0) {
+                document.getElementById("main").innerHTML += `<div><button type="button" id="bankBtn" onclick="getBankMoney()" disabled="true">Zbierz! (+ 0$)</button></div>`
+                bankSplit()
+            }
+            levels.bank.bulids++
+        }
+    },
+    {
+        itemName: "Większe zarobki banku",
+        itemDescription: "Do wszystkich banków zwiększa poziom o jeden punkt.<br />Do pięciu poziomów wyłącznie!",
+        level: { enable: true, index: 1, max: 5 },
+        money: {
+            cost: 100000,
+            upTo: [ 7, "MULTIPLY" ]
+        },
+        function: function(){
+            levels.bank.values++
+        }
+    },
 ]
 
 function createShop() {
     iSub = 0
     text = ""
     if (window.innerWidth > 671) for (i=0; i<shop.length; i++) {
-        if (shop[iSub].level.enable) text += `<tr><td>${iSub+1}.</td><th class="big">${shop[iSub].itemName}</th><td>${shop[iSub].itemDescription.replace("\n", "<br />")}</td><td class="shopItemInfo">Obecny level: ${shop[iSub].level.index}<br />Koszt: ${shop[iSub].money.cost}$<td><button class="buttonShop" type="button" onclick="buyAtShop(${iSub})">Kup!</button></td></tr>\n`
-        else text += `<tr><td>${iSub+1}.</td><th class="big">${shop[iSub].itemName}</th><td>${shop[iSub].itemDescription.replace("\n", "<br />")}</td><td class="shopItemInfo">Koszt: ${shop[iSub].money.cost}$<td><button class="buttonShop" type="button" onclick="buyAtShop(${iSub})">Kup!</button></td></tr>\n`
+        if (shop[iSub].level.enable) {
+            if (isNaN(shop[iSub].level.max) || shop[iSub].level.index < shop[iSub].level.max) text += `<tr><td>${iSub+1}.</td><th class="big">${shop[iSub].itemName}</th><td>${shop[iSub].itemDescription.replace("\n", "<br />")}</td><td class="shopItemInfo">Obecny level: ${shop[iSub].level.index}<br />Koszt: ${shop[iSub].money.cost}$<td><button class="buttonShop" type="button" onclick="buyAtShop(${iSub})">Kup!</button></td></tr>\n`
+            else text += `<tr><td>${iSub+1}.</td><th class="big">${shop[iSub].itemName}</th><td>${shop[iSub].itemDescription}</td><td class="shopItemInfo">Obecny level: MAX<td><button class="buttonShop" type="button" onclick="buyAtShop(${iSub})" disabled="true">Kup!</button></td></tr>\n`
+        }
+        else text += `<tr><td>${iSub+1}.</td><th class="big">${shop[iSub].itemName}</th><td>${shop[iSub].itemDescription}</td><td class="shopItemInfo">Koszt: ${shop[iSub].money.cost}$<td><button class="buttonShop" type="button" onclick="buyAtShop(${iSub})">Kup!</button></td></tr>\n`
         iSub++
     }
     else for (i=0; i<shop.length; i++) {
-        if (shop[iSub].level.enable) text += `<tr><td class="small"><div class="big">${iSub+1}. ${shop[iSub].itemName}</div><div>${shop[iSub].itemDescription.replace("\n", "<br />")}</div><div>Obecny level: ${shop[iSub].level.index}<br />Koszt: ${shop[iSub].money.cost}$<br /><button class="buttonShop" type="button" onclick="buyAtShop(${iSub})" style="margin-top: 7px; width: 50% ">Kup!</button></div></td></tr>\n`
-        else text += `<tr><td class="small"><div class="big">${iSub+1}. ${shop[iSub].itemName}</div><div>${shop[iSub].itemDescription.replace("\n", "<br />")}</div><div>Koszt: ${shop[iSub].money.cost}$<br /><button class="buttonShop" type="button" onclick="buyAtShop(${iSub})" style="margin-top: 7px; width: 50% ">Kup!</button></div></td></tr>\n`
+        if (shop[iSub].level.enable) { 
+            if (isNaN(shop[iSub].level.max) || shop[iSub].level.index < shop[iSub].level.max) text += `<tr><td class="small"><div class="big">${iSub+1}. ${shop[iSub].itemName}</div><div>${shop[iSub].itemDescription.replace("\n", "<br />")}</div><div class="shopItemInfo">Obecny level: ${shop[iSub].level.index}<br />Koszt: ${shop[iSub].money.cost}$</div><div><button class="buttonShop" type="button" onclick="buyAtShop(${iSub})" style="margin-top: 7px; width: 50% ">Kup!</button></div></td></tr>\n`
+            else text += `<tr><td class="small"><div class="big">${iSub+1}. ${shop[iSub].itemName}</div><div>${shop[iSub].itemDescription}</div><div class="shopItemInfo">Obecny level: MAX</div><div><button class="buttonShop" type="button" onclick="buyAtShop(${iSub})" style="margin-top: 7px; width: 50% " disabled="true">Kup!</button></div></td></tr>\n`
+        }
+        else text += `<tr><td class="small"><div class="big">${iSub+1}. ${shop[iSub].itemName}</div><div>${shop[iSub].itemDescription}</div><div class="shopItemInfo">Koszt: ${shop[iSub].money.cost}$</div><div><button class="buttonShop" type="button" onclick="buyAtShop(${iSub})" style="margin-top: 7px; width: 50% ">Kup!</button></div></td></tr>\n`
         iSub++
     }
 
@@ -110,7 +149,7 @@ function getCoins(){
 }
 
 function timeRing1() {
-    setTimeout(function(){document.getElementById("mainBtn").innerText = "1.0 s"; document.getElementById("mainBtn").style.background = "transparent"}, 0)
+    setTimeout(function(){document.getElementById("mainBtn").innerText = "1.0 s"}, 0)
     setTimeout(function(){document.getElementById("mainBtn").innerText = "0.9 s"}, 100)
     setTimeout(function(){document.getElementById("mainBtn").innerText = "0.8 s"}, 200)
     setTimeout(function(){document.getElementById("mainBtn").innerText = "0.7 s"}, 300)
@@ -120,7 +159,7 @@ function timeRing1() {
     setTimeout(function(){document.getElementById("mainBtn").innerText = "0.3 s"}, 700)
     setTimeout(function(){document.getElementById("mainBtn").innerText = "0.2 s"}, 800)
     setTimeout(function(){document.getElementById("mainBtn").innerText = "0.1 s"}, 900)
-    setTimeout(function(){document.getElementById("mainBtn").outerHTML = `<button id="mainBtn" onclick="getCoins(random(5, 50))">Click!</button>`; document.getElementById("mainBtn").style = ""}, 1000)
+    setTimeout(function(){document.getElementById("mainBtn").outerHTML = `<button id="mainBtn" onclick="getCoins(random(5, 50))">Click!</button>`}, 1000)
 }
 
 function buyAtShop(id) {
@@ -131,10 +170,21 @@ function buyAtShop(id) {
     else if (shop[id].money.upTo[1] == "ADD") shop[id].money.cost = shop[id].money.cost + shop[id].money.upTo[0]
     else return function(){ indexes.coins = indexes.coins + shop[id].money.cost; console.error("Invalid tag at \".upTo[1]\"") }
 
-    if (shop[id].level.enable) shop[id].level.index = shop[id].level.index + 1
 
-    if (shop[id].level.enable) document.getElementsByClassName("shopItemInfo")[id].innerHTML = `Obecny level: ${shop[id].level.index}<br />Koszt: ${shop[id].money.cost}$`
-    else document.getElementsByClassName("shopItemInfo")[id].innerHTML = `Koszt: ${shop[id].money.cost}$`
+    if (shop[id].level.enable) {
+        shop[id].level.index = shop[id].level.index + 1
+
+        if (!isNaN(shop[id].level.max) && shop[id].level.index >= shop[id].level.max) {
+            document.getElementsByClassName("shopItemInfo")[id].innerHTML = `Obecny level: MAX`
+            document.getElementsByClassName("buttonShop")[id].disabled = "true"
+        } else {
+            document.getElementsByClassName("shopItemInfo")[id].innerHTML = `Obecny level: ${shop[id].level.index}<br />Koszt: ${shop[id].money.cost}$`
+        }
+    }
+    else 
+        document.getElementsByClassName("shopItemInfo")[id].innerHTML = `Koszt: ${shop[id].money.cost}$`
+    //-
+    
     reaction_buttonInShop(id, "chartreuse")
     shop[id].function()
 }
@@ -148,6 +198,7 @@ function reloadIndexes() {
     setTimeout(() => {
         document.getElementById("money").innerText = `${indexes.coins}$`
         document.getElementById("town").innerHTML = `<td>👥 ${indexes.users}</td><td>🏘️ ${indexes.bulids}</td>`
+        document.getElementById("bank").innerHTML = `<td>🏦 ${levels.bank.bulids}</td><td>📊 ${levels.bank.values}</td>`
         
         if (windowWidth !== window.innerWidth) {
             createShop()
@@ -156,4 +207,29 @@ function reloadIndexes() {
 
         reloadIndexes()
     }, 5)
+}
+
+function bankSplit() {
+    setTimeout(() => {
+        var moneyB = 0
+        for (i = 0; i < levels.bank.bulids; i++) {
+            moneyB = moneyB + random(10, 100) * levels.bank.values
+        }
+
+        if (indexes.bankCoins == 0) {
+            document.getElementById("bankBtn").outerHTML = `<div><button type="button" id="bankBtn" onclick="getBankMoney()">Zbierz! (+ ${moneyB}$)</button></div>`
+
+        }
+
+        indexes.bankCoins = indexes.bankCoins + moneyB
+        document.getElementById("bankBtn").innerText = `Zbierz! (+ ${indexes.bankCoins}$)`
+        
+        bankSplit()
+    }, 3000)
+}
+
+function getBankMoney() {
+    indexes.coins += indexes.bankCoins
+    indexes.bankCoins = 0
+    document.getElementById("bankBtn").outerHTML = `<div><button type="button" id="bankBtn" disabled>Zbierz! (+ 0$)</button></div>`
 }

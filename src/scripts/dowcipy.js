@@ -56,7 +56,13 @@ const dowcipy = [
     {
         isJSON: false,
         index: "Lew zorganizował postawienie w lesie nowoczesnej toalety. Nie zwykłego ToiToia, ale zadaszonego budyneczku z dwoma kabinami, umywalki, mydło, papier, normalnie na bogato.<br />Po tygodniu, niestety, zdarzyło się nieszczęście. Lew wstępuje do toalety, patrzy, a tam okno wybite, w męskiej woda porozlewana, ściany wybrudzone. Natychmiast zorganizował zebranie i pyta:<br />– Kto tak zniszczył toaletę?!<br />Wychodzi zajączek i mówi:<br />– No ja i nie ja…<br />Lew pyta:<br />– Jak to ty i nie ty?<br />– No, bo srałem sobie spokojnie, nagle wpadł niedźwiedź, nasrał na mnie, podtarł się mną, a kiedy zobaczył, że jestem zajączkiem, a nie papierem toaletowym, to się wkurzył, wyrzucił mnie przez okno i uciekł.<br />Lew wkurzony, krzyczy na niedźwiedzia, każe mu zapłacić za szkody i żeby to się więcej nie powtórzyło. I rzeczywiście – przez następny miesiąc było względnie spokojnie.<br />Pewnego razu lew robi obchód, patrzy, a tu ta sama sytuacja: okno wybite, wszystko wybrudzone. – Kto to zrobił? – pyta lew na zebraniu, spoglądając w stronę niedźwiedzia. Wychodzi lisek:<br />– No ja i nie ja.<br />– Jak to ty i nie ty?<br />– Srałem sobie spokojnie, nagle wpadł niedźwiedź, nasrał na mnie, podtarł się mną, a kiedy zobaczył, że jestem liskiem, a nie papierem toaletowym, to się wkurzył, wyrzucił mnie przez okno i uciekł.<br />Lew już totalnie na załamaniu nerwowym krzyczy na niedźwiedzia, że ma zapłacić za szkody plus 10 000 odszkodowania i jak jeszcze raz to się zdarzy, to go wyrzuci z lasu.<br />Przez następne pół roku był spokój. Raz lew idzie do kibla, patrzy, a tam istny armagedon, okna wszystkie powybijane, papier wala się nie tylko po podłodze, ale leży wywleczony po lesie, wszystkie ściany wybrudzone, w męskiej sedes dosłownie wyrwany z podłogi.<br />Natychmiast zwołuje zebranie i wrzeszczy:<br />– KTO ROZWALIŁ KIBEL?!<br />Wstaje jeżyk i mówi:<br />– No ja i nie ja."
-    }
+    },
+
+    // a tu reszta, co ludzie wysłali :P
+    {
+        isJSON: true, 
+        index: { "qu": "Jak nazywa się auto które pomieści cztery dziki?", "an": "Fordzik." }
+    },
 ]
 
 function walnijDowcip() {

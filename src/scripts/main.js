@@ -36,24 +36,6 @@ const set = {
 window.onload = checkIframe()
 
 function checkMobileDevice() {
-    function theNav() {
-        setTimeout(() => {
-            if (window.innerWidth == windowWidth) return theNav()
-            
-            windowWidth = window.innerWidth
-
-            if (window.innerWidth <= 813) {
-                document.getElementById("nav").innerHTML = `<button onclick="showNav()" class="more onlyBack" style="margin-top: 5px">⋅⋅⋅</button>`
-
-                set.navBox(0)
-            } else {
-                set.nav()
-            }
-
-            theNav()
-        }, 50)
-    }
-
     setTimeout(() => {
         if (window.innerWidth <= window.innerHeight) {
             document.body.classList.add('phone');
@@ -63,7 +45,7 @@ function checkMobileDevice() {
         } else {
             set.nav()
 
-            theNav()
+            execute()
         }
 
         document.getElementById("banner").style.marginLeft = "-2000vw"
@@ -106,26 +88,44 @@ function checkIframe() {
         alert(`Blokada przeciw iframemem!\n\nWykryto korzystanie z osadzenia - ta blokada służy do blokowania zawartości z osadzenia, ponieważ się ona poprawnie się nie wyświetli. Aby temu zapobiec, włącz stronę normalnie.`)
         setTimeout(() => { document.body.innerHTML = `<div id="banner" class><a onclick="window.parent.location.href = window.location.href">Idź do strony</a></div>` }, 500)
     } else {
-        function run() {
-            function execute() {
-                setTimeout(() => {
-                    if (isEnd) return;
-                    try {
-                        checkMobileDevice()
-                        if (errorlist.length !== 0) console.warn("Pojawiły się w trakcie błędy. Oto cała lista błędów: ", errorlist)
-                        else console.log("W trakcie uruchamiania skryptu nie pojawiły się błędy")
-                        return isEnd = true
-                    } catch (err) {
-                        errorlist[errorlist.length] = err
-                        execute()
-                    }
-                }, 100)
-            }
+        var errorlist = [] 
 
-            var errorlist = [] 
-            execute()
+        function run() {
+            setTimeout(() => {
+                if (isEnd) return;
+                try {
+                    checkMobileDevice()
+                    if (errorlist.length !== 0) console.warn("Pojawiły się w trakcie błędy. Oto cała lista błędów: ", errorlist)
+                    else console.log("W trakcie uruchamiania skryptu nie pojawiły się błędy")
+                    return isEnd = true
+                } catch (err) {
+                    errorlist[errorlist.length] = err
+                    run()
+                }
+            }, 100)
         }
 
         run()
     }
+}
+
+function execute() {
+    function theNav() {
+            if (window.innerWidth == windowWidth) return
+            windowWidth = window.innerWidth
+
+            if (window.innerWidth <= 813) {
+                document.getElementById("nav").innerHTML = `<button onclick="showNav()" class="more onlyBack" style="margin-top: 5px">⋅⋅⋅</button>`
+
+                set.navBox(0)
+            } else {
+                set.nav()
+            }
+    }
+
+    setTimeout(() => {
+        theNav()
+        //scrollbar()
+        execute()
+    }, 50)
 }

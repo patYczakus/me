@@ -21,18 +21,26 @@ td, th {
     border: 2px solid black;
 }
 
+table#shop th.big { padding: 5px 15px;}
 table#shop td.small { width: calc(100vw - 36px); }
 table#shop :not(.big) { font-size: 20px; }
 table#shop .big { font-size: 35px; }
 table#shop div { text-align: center; margin: 5px 0; }
 
-#mainBtn {
-    width: 100px;
+#main div {display: inline-block;}
+
+#main button {
     border: none;
     border-radius: 0.3rem;
     background: rgba(0, 0, 0, 0.15);
     cursor: pointer;
 }
+#main button:disabled {
+    background: transparent
+}
+
+
+#mainBtn { width: 100px; }
 
 button.buttonShop {
     background: rgb(0, 0, 0, 0.2);

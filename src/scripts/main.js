@@ -3,8 +3,9 @@ let i, iSys, windowWidth = 0
 var isEnd = false
 const navigateData = [
     { "name": "Home", "href": "home.html" },
+    { "name": "Kontakt", "href": "kontakt.html"},
     { "name": "Rich Presence Games", "href": "games.html" },
-    { "name": "Dowcipy na co dzień", "href": "dowcipy.html"}
+    { "name": "Dowcipy na co dzień", "href": "dowcipy.html"},
 ]
 
 const set = {
@@ -88,24 +89,9 @@ function checkIframe() {
         alert(`Blokada przeciw iframemem!\n\nWykryto korzystanie z osadzenia - ta blokada służy do blokowania zawartości z osadzenia, ponieważ się ona poprawnie się nie wyświetli. Aby temu zapobiec, włącz stronę normalnie.`)
         setTimeout(() => { document.body.innerHTML = `<div id="banner" class><a onclick="window.parent.location.href = window.location.href">Idź do strony</a></div>` }, 500)
     } else {
-        var errorlist = [] 
-
-        function run() {
-            setTimeout(() => {
-                if (isEnd) return;
-                try {
-                    checkMobileDevice()
-                    if (errorlist.length !== 0) console.warn("Pojawiły się w trakcie błędy. Oto cała lista błędów: ", errorlist)
-                    else console.log("W trakcie uruchamiania skryptu nie pojawiły się błędy")
-                    return isEnd = true
-                } catch (err) {
-                    errorlist[errorlist.length] = err
-                    run()
-                }
-            }, 100)
-        }
-
-        run()
+        setTimeout(() => {
+            checkMobileDevice()
+        }, 500)
     }
 }
 
@@ -114,7 +100,7 @@ function execute() {
             if (window.innerWidth == windowWidth) return
             windowWidth = window.innerWidth
 
-            if (window.innerWidth <= 813) {
+            if (window.innerWidth <= 700) {
                 document.getElementById("nav").innerHTML = `<button onclick="showNav()" class="more onlyBack" style="margin-top: 5px">⋅⋅⋅</button>`
 
                 set.navBox(0)

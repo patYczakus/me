@@ -1,5 +1,7 @@
 var obecnyDowcip = -1
 
+var text_kopiujdowcip = ""
+
 const dowcipy = [
     // te z odsłanianiem
     {
@@ -163,7 +165,40 @@ const dowcipy = [
     }
 ]
 
+function copyToClipboard() {
+    var textArea = document.createElement("textarea")
+
+    textArea.value = text_kopiujdowcip /* `${dowcip.main.index.qu}\n\n${dowcip.main.index.an}`
+        else
+            textArea.value = dowcip.main.index
+                .replace(/<br \/>/g, "\n")
+                .replace(/<i>/g, "*")
+                .replace(/<\/i>/g, "*") */
+        
+        // Avoid scrolling to bottom
+    textArea.style.top = "0"
+    textArea.style.left = "0"
+    textArea.style.position = "fixed"
+      
+    document.body.appendChild(textArea)
+    textArea.focus()
+    textArea.select()
+      
+    try {
+        var successful = document.execCommand('copy')
+        var msg = successful ? "" : "nie "
+        alert(`Kopiowanie ${msg}powiodło się`)
+    } catch (err) {
+        console.error('Oops, unable to copy', err)
+    }
+      
+    document.body.removeChild(textArea)
+}
+
+
 function walnijDowcip() {
+    if (document.getElementById("kopiujdowcip").disabled) document.getElementById("kopiujdowcip").disabled = false
+
     var dowcip = Math.floor(Math.random() * dowcipy.length)
     dowcip = {id: dowcip, main: dowcipy[dowcip]}
     if (dowcip.id == obecnyDowcip) return walnijDowcip()
@@ -176,6 +211,13 @@ function walnijDowcip() {
     }
     
     document.getElementById("los-dowcipów").innerHTML = `<span style="font-size: 70%; color: rgb(100, 100, 100)">ID dowcipu: ${dowcip.id+1} | ${dowcip.main.author == null ? "Nieznany użytkownik" : "Od: " + dowcip.main.author}</span><br />${text}`
+    if (dowcip.main.isJSON)
+        text_kopiujdowcip = `${dowcip.main.index.qu}\n\n${dowcip.main.index.an}`
+    else
+        text_kopiujdowcip = dowcipy.main.index
+        .replace(/<br \/>/g, "\n")
+        .replace(/<i>/g, "*")
+        .replace(/<\/i>/g, "*")
 }
 
 function reviev() {
@@ -186,6 +228,8 @@ function reviev() {
 }
 
 function wybierzDowcip() {
+    if (document.getElementById("kopiujdowcip").disabled) document.getElementById("kopiujdowcip").disabled = false
+
     let num = prompt(`Podaj ID dowcipu`, dowcipy.length)
     if (num == "" || num == null) return;
     num = Number(num)
@@ -198,9 +242,18 @@ function wybierzDowcip() {
     }
         
     document.getElementById("los-dowcipów").innerHTML = `<span style="font-size: 70%; color: rgb(100, 100, 100)">${dowcipy[num-1].author == null ? "Nieznany użytkownik" : "Od: " + dowcipy[num-1].author}</span><br />${text}`
-}
+    if (dowcipy[num-1].isJSON)
+        text_kopiujdowcip = `${dowcipy[num-1].index.qu}\n\n${dowcipy[num-1].index.an}`
+    else
+        text_kopiujdowcip = dowcipy[num-1].index
+        .replace(/<br \/>/g, "\n")
+        .replace(/<i>/g, "*")
+        .replace(/<\/i>/g, "*") 
+}    
 
 function wybierzDowcipZBłędem() {
+    if (document.getElementById("kopiujdowcip").disabled) document.getElementById("kopiujdowcip").disabled = false
+
     let num = prompt("Spróbuj jeszcze raz - podaj ID dowcipu", dowcipy.length)
     if (num == "" || num == null) return;
     num = Number(num)
@@ -213,4 +266,11 @@ function wybierzDowcipZBłędem() {
     }
         
     document.getElementById("los-dowcipów").innerHTML = `<span style="font-size: 70%; color: rgb(100, 100, 100)">${dowcipy[num-1].author == null ? "Nieznany użytkownik" : "Od: " + dowcipy[num-1].author}</span><br />${text}`
+    if (dowcipy[num-1].isJSON)
+        text_kopiujdowcip = `${dowcipy[num-1].index.qu}\n\n${dowcipy[num-1].index.an}`
+    else
+        text_kopiujdowcip = dowcipy[num-1].index
+        .replace(/<br \/>/g, "\n")
+        .replace(/<i>/g, "*")
+        .replace(/<\/i>/g, "*") 
 }

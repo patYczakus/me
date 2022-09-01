@@ -197,6 +197,8 @@ function copyToClipboard() {
 
 
 function walnijDowcip() {
+    
+
     if (document.getElementById("kopiujdowcip").disabled) document.getElementById("kopiujdowcip").disabled = false
 
     var dowcip = Math.floor(Math.random() * dowcipy.length)
@@ -211,10 +213,12 @@ function walnijDowcip() {
     }
     
     document.getElementById("los-dowcipów").innerHTML = `<span style="font-size: 70%; color: rgb(100, 100, 100)">ID dowcipu: ${dowcip.id+1} | ${dowcip.main.author == null ? "Nieznany użytkownik" : "Od: " + dowcip.main.author}</span><br />${text}`
+    pokazReklame()
+    
     if (dowcip.main.isJSON)
         text_kopiujdowcip = `${dowcip.main.index.qu}\n\n${dowcip.main.index.an}`
     else
-        text_kopiujdowcip = dowcipy.main.index
+        text_kopiujdowcip = dowcip.main.index
         .replace(/<br \/>/g, "\n")
         .replace(/<i>/g, "*")
         .replace(/<\/i>/g, "*")
@@ -242,6 +246,8 @@ function wybierzDowcip() {
     }
         
     document.getElementById("los-dowcipów").innerHTML = `<span style="font-size: 70%; color: rgb(100, 100, 100)">${dowcipy[num-1].author == null ? "Nieznany użytkownik" : "Od: " + dowcipy[num-1].author}</span><br />${text}`
+    pokazReklame()    
+
     if (dowcipy[num-1].isJSON)
         text_kopiujdowcip = `${dowcipy[num-1].index.qu}\n\n${dowcipy[num-1].index.an}`
     else
@@ -266,6 +272,8 @@ function wybierzDowcipZBłędem() {
     }
         
     document.getElementById("los-dowcipów").innerHTML = `<span style="font-size: 70%; color: rgb(100, 100, 100)">${dowcipy[num-1].author == null ? "Nieznany użytkownik" : "Od: " + dowcipy[num-1].author}</span><br />${text}`
+    pokazReklame()
+    
     if (dowcipy[num-1].isJSON)
         text_kopiujdowcip = `${dowcipy[num-1].index.qu}\n\n${dowcipy[num-1].index.an}`
     else
@@ -273,4 +281,8 @@ function wybierzDowcipZBłędem() {
         .replace(/<br \/>/g, "\n")
         .replace(/<i>/g, "*")
         .replace(/<\/i>/g, "*") 
+}
+
+function pokazReklame() {
+    if (Math.floor(Math.random() * 3) === 1) document.getElementById("los-dowcipów").innerHTML = `<iframe src="https://eyead.tk/root/root.html" style="width: 100%; height: 205px; border: 2.3px solid cyan; background: white; box-sizing: border-box; margin: 12px 0;"></iframe>` + document.getElementById("los-dowcipów").innerHTML
 }

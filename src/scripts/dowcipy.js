@@ -162,7 +162,12 @@ const dowcipy = [
         isJSON: false,
         author: "Haker1000",
         index: "[Tata] Po co Ci w domu łopata i kompas?<br />[Jaś] Zamierzam posprzątać w moim pokoju"
-    }
+    },
+    {
+        isJSON: true,
+        author: "poczur😘",
+        index: { "qu": "dlaczego walentynki 2007 roku były najmniej słodkie?", "an": "Bo pączki były z mięsem." }
+    },
 ]
 
 function copyToClipboard() {

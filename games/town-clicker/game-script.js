@@ -22,6 +22,16 @@ var levels = {
 
 var shop = [
     {
+        itemName: "Mieszkanie",
+        itemDescription: "Buduje mieszkanie i od razu dodaje mieszkańców",
+        level: { enable: false },
+        money: {
+            cost: 50,
+            upTo: [ 0, "ADD" ]
+        },
+        function: 'indexes.users = indexes.users + random(1, 6); indexes.bulids = indexes.bulids + 1'
+    },
+    {
         itemName: "Trzy mieszkania",
         itemDescription: "Buduje trzy mieszkania i od razu dodaje mieszkańców",
         level: { enable: false },
@@ -29,10 +39,7 @@ var shop = [
             cost: 150,
             upTo: [ 0, "ADD" ]
         },
-        function: function(){
-            indexes.users = indexes.users + random(3, 18)
-            indexes.bulids = indexes.bulids + 3
-        }
+        function: 'indexes.users = indexes.users + random(3, 18); indexes.bulids = indexes.bulids + 3'
     },
     {
         itemName: "Kamienica",
@@ -42,10 +49,7 @@ var shop = [
             cost: 600,
             upTo: [ 0, "ADD" ]
         },
-        function: function(){
-            indexes.users = indexes.users + random(10, 75)
-            indexes.bulids++
-        }
+        function: 'indexes.users = indexes.users + random(10, 75); indexes.bulids++'
     },
     {
         itemName: "Blok",
@@ -55,10 +59,7 @@ var shop = [
             cost: 1500,
             upTo: [ 0, "ADD" ]
         },
-        function: function(){
-            indexes.users = indexes.users + random(40, 400)
-            indexes.bulids++
-        }
+        function: 'indexes.users = indexes.users + random(40, 400); indexes.bulids++'
     },
     {
         itemName: "Wartościowość +1",
@@ -68,9 +69,7 @@ var shop = [
             cost: 500,
             upTo: [ 3, "MULTIPLY" ]
         },
-        function: function(){
-            levels.clicks = levels.clicks + 1
-        }
+        function: 'levels.clicks = levels.clicks + 1'
     },
     {
         itemName: "Bank",
@@ -80,15 +79,7 @@ var shop = [
             cost: 10000,
             upTo: [ 470, "ADD" ]
         },
-        function: function(){
-            indexes.users = indexes.users + random(3, 10)
-            indexes.bulids++
-            if (levels.bank.bulids == 0) {
-                document.getElementById("main").innerHTML += `<div><button type="button" id="bankBtn" onclick="getBankMoney()" disabled="true">Zbierz! (+ 0$)</button></div>`
-                bankSplit()
-            }
-            levels.bank.bulids++
-        }
+        function: 'indexes.users = indexes.users + random(3, 10); indexes.bulids++; if (levels.bank.bulids == 0) { document.getElementById("main").innerHTML += `<div><button type="button" id="bankBtn" onclick="getBankMoney()" disabled="true">Zbierz! (+ 0$)</button></div>`; bankSplit(); }; levels.bank.bulids++`'
     },
     {
         itemName: "Większe zarobki banku",
@@ -98,9 +89,7 @@ var shop = [
             cost: 100000,
             upTo: [ 7, "MULTIPLY" ]
         },
-        function: function(){
-            levels.bank.values++
-        }
+        function: 'levels.bank.values++'
     },
 ]
 
@@ -143,22 +132,13 @@ function timeSet(){
 }
 
 function getCoins(){
-    indexes.coins = indexes.coins + Math.floor((random(5, 50) * levels.clicks * ((indexes.users - 6) / 10000 + 1)))
+    indexes.coins = indexes.coins + Math.floor((random(5, 50) * levels.clicks * ((indexes.users - 6) / 10000 + 1)) / (1 + indexes.bulids / 3))
     document.getElementById("mainBtn").disabled = "true"
     timeRing1()
 }
 
 function timeRing1() {
-    setTimeout(function(){document.getElementById("mainBtn").innerText = "1.0 s"}, 0)
-    setTimeout(function(){document.getElementById("mainBtn").innerText = "0.9 s"}, 100)
-    setTimeout(function(){document.getElementById("mainBtn").innerText = "0.8 s"}, 200)
-    setTimeout(function(){document.getElementById("mainBtn").innerText = "0.7 s"}, 300)
-    setTimeout(function(){document.getElementById("mainBtn").innerText = "0.6 s"}, 400)
-    setTimeout(function(){document.getElementById("mainBtn").innerText = "0.5 s"}, 500)
-    setTimeout(function(){document.getElementById("mainBtn").innerText = "0.4 s"}, 600)
-    setTimeout(function(){document.getElementById("mainBtn").innerText = "0.3 s"}, 700)
-    setTimeout(function(){document.getElementById("mainBtn").innerText = "0.2 s"}, 800)
-    setTimeout(function(){document.getElementById("mainBtn").innerText = "0.1 s"}, 900)
+    setTimeout(function(){document.getElementById("mainBtn").innerText = "Czekaj..."}, 0)
     setTimeout(function(){document.getElementById("mainBtn").outerHTML = `<button id="mainBtn" onclick="getCoins(random(5, 50))">Click!</button>`}, 1000)
 }
 
@@ -186,7 +166,7 @@ function buyAtShop(id) {
     //-
     
     reaction_buttonInShop(id, "chartreuse")
-    shop[id].function()
+    eval(shop[id].function)
 }
 
 function reaction_buttonInShop(id, color) {
@@ -232,4 +212,46 @@ function getBankMoney() {
     indexes.coins += indexes.bankCoins
     indexes.bankCoins = 0
     document.getElementById("bankBtn").outerHTML = `<div><button type="button" id="bankBtn" disabled>Zbierz! (+ 0$)</button></div>`
+}
+
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+window.onload = () => {
+    console.log(levels, indexes, shop)
+    if (window.localStorage.getItem("gameData") != null) {
+        const gameData = JSON.parse(window.localStorage.getItem("gameData"))
+
+        indexes = gameData.a
+        levels = gameData.b
+        shop = gameData.c
+    }
+
+    timeSet(); createShop(); reloadIndexes(); dataSave();
+    if (levels.bank.bulids > 0) {
+        document.getElementById("main").innerHTML += `<div><button type="button" id="bankBtn" onclick="getBankMoney()" disabled="true">Zbierz! (+ 0$)</button></div>`
+        bankSplit()
+    }
+}
+
+function dataSave() {
+    setTimeout(() => {
+        window.localStorage.setItem("dddd", indexes.coins)
+        window.localStorage.removeItem("dddd")
+        window.localStorage.setItem("dddd", levels.clicks)
+        window.localStorage.removeItem("dddd")
+        window.localStorage.setItem("dddd", shop[1].itemName)
+        window.localStorage.removeItem("dddd")
+        window.localStorage.setItem("gameData", JSON.stringify({a:indexes,b:levels,c:shop}))
+        dataSave()
+    }, 2000)
+}
+
+function deleteData() {
+    const r = confirm("Jesteś pewien, że chcesz usunąć dane? Tej czynności NIE MOŻNA COFNĄĆ, oraz zaczniesz od początku!")
+
+    if (r) {
+        dataSave = () => {}
+        window.localStorage.removeItem("gameData")
+        location.reload()
+    }
 }

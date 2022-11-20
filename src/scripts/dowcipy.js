@@ -74,6 +74,16 @@ const dowcipy = [
         author: "Patryktopek [👑] [⚜️]",
         index: { "qu": "Śniadanie na kacu jest jak przeszczep.", "an": "Przyjmie się albo nie." }
     },
+    {
+        isJSON: true, 
+        author: "Patryktopek [👑] [⚜️]",
+        index: { "qu": "Co zaleca się Niemkom w razie napaści imigranta?", "an": "By głośno chrząkały, kwiczały i tarzały się w błocie." }
+    },
+    {
+        isJSON: true, 
+        author: "Patryktopek [👑] [⚜️]",
+        index: { "qu": "Jak przetłumaczyć na polski tytuł gry ”Call of duty”?", "an": "Telefon z WKU (Wojskowego Komendantu Uzupełnień)" }
+    },
 
     // i te bez
     {
@@ -151,6 +161,11 @@ const dowcipy = [
         author: "Patryktopek [👑] [⚜️]",
         index:"[Pacjent] Panie doktorze, co się dzieje po śmierci?<br />[Doktor] Zmieniamy pościel."
     },
+    {
+        isJSON: false,
+        author: "Patryktopek [👑] [⚜️]",
+        index:"Facet przed wycieczką do Rzymu postanowił jeszcze udać się do fryzjera.\nPodczas strzyżenia wspomniał fryzjerowi o wycieczce, a ten na to:\n- Rzym? Po co ktokolwiek chciałby tam jechać? Jest zatłoczony, brudny i pełno tam Włochów.\nMusisz być chyba szalony by tam chcieć jechać! No, a jak chcesz się tam dostać?\n- Lecimy Lotem, trafiliśmy na wyjątkowo tanie bilety.\n- Lotem?! To straszne linie, ich samoloty są stare, stewardesy są brzydkie i niemiłe, a ich loty są zawsze opóźnione. Jedzenie paskudne. A gdzie nocujecie w Rzymie?\n- W centrum miasta w tamtejszym Marriocie.\n- W tej ruinie? To najgorszy hotel w mieście. Pokoje są małe, obsługa hotelowa kiepska i się za wszystko przepłaca.\nNo a co tam zamierzacie robić?\n- Mamy zamiar zwiedzić Watykan i zobaczyć Papieża.\n- Ta, już akurat wam się uda. Ty i milion innych chce zobaczyć Papieża.\nBędziesz jak w mrowisku i nic nie zobaczysz. Chłopaku - dużo szczęścia na tej wycieczce - będzie Ci potrzebne.\nPo około miesiącu facet idzie znowu do fryzjera na \"okresowe\" strzyżenie, a ten pyta o wycieczkę.\n- Była wspaniała. Przylecieliśmy na czas jednym z dreamlinerów Lotu, ale to jeszcze nic, okazało się, że miejsca zostały podwójnie zabukowane, więc dali na miejsca w pierwszej klasie.\nJedzenie i wino były rewelacyjne, a stewardesa co nas obsługiwała miała może z dwadzieścia pięć lat i nie odstępowała nas na krok, każde zamówienie realizowała w trymiga.\mA hotel - rewelacja. Dopiero co przed naszym przylotem zakończył się generalny remont i teraz to jest najlepszy hotel w mieście.\nMało tego tu też miejsca były podwójnie zabukowane i dali nam apartament prezydencki bez żadnych dopłat!\n- Hmm, no ale do Papieża to żeście nie dotarli, co?\n- Mieliśmy trochę szczęścia. Jak zwiedzaliśmy Watykan, jeden z Gwardzistów podszedł do nas i wyjaśnił, że Papież lubi przy każdej audiencji spotkać kogoś z przybyłych osobiście i zapytał czy nie zechcielibyśmy być tymi osobami. Oczywiście się zgodzili?\nMy - nie mogło być inaczej - po pięciu minutach oczekiwania pojawił się Papież i uścisnął mi rękę.\nUklęknąłem, a on powiedział parę słów.\n- Naprawdę?! A co powiedział?\nZapytał:\n- Stary, kto Cię tak beznadziejnie ostrzygł?"
+    },
 
     // a tu reszta, co ludzie wysłali :P
     {
@@ -166,7 +181,7 @@ const dowcipy = [
     {
         isJSON: true,
         author: "poczur😘",
-        index: { "qu": "dlaczego walentynki 2007 roku były najmniej słodkie?", "an": "Bo pączki były z mięsem." }
+        index: { "qu": "Dlaczego walentynki 2007 roku były najmniej słodkie?", "an": "Bo pączki były z mięsem." }
     },
 ]
 

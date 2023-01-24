@@ -195,7 +195,7 @@ function copyToClipboard() {
                 .replace(/<i>/g, "*")
                 .replace(/<\/i>/g, "*") */
         
-        // Avoid scrolling to bottom
+    // Avoid scrolling to bottom
     textArea.style.top = "0"
     textArea.style.left = "0"
     textArea.style.position = "fixed"

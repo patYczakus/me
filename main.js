@@ -63,7 +63,7 @@ window.onload = () => {
     if (inBuild) {
         span.style.fontSize = "20px"
         span.innerText = `Ta strona jest w budowie, przepraszamy za utrudnienia!
-        Tworzona jest 4. wersja strony PatrykTopek. Oczekuj na aktualizację...`
+        Tworzona jest 4. wersja strony Patryktopek. Oczekuj na aktualizację...`
 
         centered.appendChild(span)
     }
@@ -71,6 +71,11 @@ window.onload = () => {
     document.body.appendChild(centered)
 
     if (!inBuild) {
-            
+        setTimeout(() => {
+            document.querySelector("#loadingScreen").style.opacity = 0
+            setTimeout(() => {
+                document.querySelector("#loadingScreen").remove()
+            }, 500)
+        }, 5000)
     }
 }

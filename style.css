@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Nova+Square&display=swap');
+
+@keyframes showAnimation {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+@keyframes jumpImageBig {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-50px);
+    }
+}
+@keyframes jumpImageSmall {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/*#######################################*/
+
+:root {
+    --background-color: #3d3d3d;
+    --font-color: #f8f8f8;
+    --header-font-family: "Audiowide", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    --normal-font-family: "Nova Square", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+*:not(.standard) {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--background-color);
+    color: var(--font-color);
+    font-family: var(--normal-font-family);
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+#loadingScreen {
+    height: 100vh;
+    margin: -8px;
+}
+
+.YimgLoad {
+    animation-name: jumpImageSmall, showAnimation;
+    animation-duration: 10s, 2s;
+    animation-timing-function: cubic-bezier(.24, 0, .55, 1), ease-out;
+    animation-iteration-count: infinite, 1;
+}
+.YimgLoad.big {
+    animation-name: jumpImageBig, showAnimation;
+    animation-duration: 10s, 2s;
+    animation-timing-function: cubic-bezier(.24, 0, .55, 1), ease-out;
+    animation-iteration-count: infinite, 1;
+}
+
+.showAnimation {
+    animation-name: showAnimation;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+}

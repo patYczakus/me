@@ -1,6 +1,6 @@
 # Patryktopek - repozytorium "me"
 
-Oto strona Patryka - żadne kopiowanie zabronione!
+Repozytorium o stronie Patryka oraz potrzebnymi plikami - żadne kopiowanie zabronione!
 
 ## Korzystane języki
 

@@ -43,8 +43,7 @@ class Y_img {
         Y_img.src = "Y.png"
         Y_img.width = size
         Y_img.height = size
-        if (animated)
-            Y_img.className = `YimgLoad noDragable ${bigAnimation ? "big" : ""}`
+        if (animated) Y_img.className = `YimgLoad noDragable ${bigAnimation ? "big" : ""}`
 
         /**
          * Faktyczny obraz, zapisany jako element `<img>`.
@@ -72,26 +71,24 @@ class Y_img {
              * `10` - mała animacja;
              * `11` - duża animacja.
              */
-            code:
-                String(Number(animated)) + animated
-                    ? String(Number(bigAnimation))
-                    : "",
+            code: String(Number(animated)) + animated ? String(Number(bigAnimation)) : "",
         }
     }
 }
 
 function navigatorToogle() {
+    if (document.querySelector("#navigator").classList.contains("_firstclick")) {
+        document.querySelector("#navigator").classList.toggle("noactive")
+    } else {
+        document.querySelector("#navigator").classList.add("_firstclick")
+    }
     document.querySelector("#navigator").classList.toggle("active")
     if (document.querySelector("#navigator").classList.contains("active")) {
-        document.querySelector("#content .n").style.height = `${
-            document.querySelector("#content .n").scrollHeight
-        }px`
+        document.querySelector("#content .n").style.height = `${document.querySelector("#content .n").scrollHeight}px`
         document.querySelector("#content .c").style.height = "0"
     } else {
         document.querySelector("#content .n").style.height = "0"
-        document.querySelector("#content .c").style.height = `${
-            document.querySelector("#content .c").scrollHeight
-        }px`
+        document.querySelector("#content .c").style.height = `${document.querySelector("#content .c").scrollHeight}px`
     }
 }
 
@@ -110,17 +107,13 @@ function createHome() {
     navbtn.id = "navigator"
     navbtn.innerText = "Nawigacja"
     document.querySelector("#content").appendChild(navbtn)
-    document.querySelector(
-        "#content"
-    ).innerHTML = `<button id="navigator" onclick="navigatorToogle()">Nawigacja</button>
+    document.querySelector("#content").innerHTML = `<button id="navigator" onclick="navigatorToogle()">Nawigacja</button>
     <div class="n"><br /></div>
     <div class="c"></div>`
 
     //generuje w #content poszczególne elementy zależne od rodzaju pliku. Jeżeli to md - musi być użyte w marked.parse(), html idzie normalnie
     if (file.type == "md") {
-        document.querySelector("#content .c").innerHTML = marked.parse(
-            file.text
-        )
+        document.querySelector("#content .c").innerHTML = marked.parse(file.text)
     } else {
         document.querySelector("#content .c").innerHTML = file.text
     }
@@ -130,27 +123,18 @@ function createHome() {
         if (!navigatorJSON.navNames[navname].showInNav) return
 
         if (file.navname != navname)
-            document.querySelector(
-                "#content .n"
-            ).innerHTML += `<span class="navig"><a href="?nav=${navname}">
+            document.querySelector("#content .n").innerHTML += `<span class="navig"><a href="?nav=${navname}">
                 <span style="opacity: 0.5">?nav=</span>${navname}
             </a></span>`
-        else
-            document.querySelector(
-                "#content .n"
-            ).innerHTML += `<span class="navig"><span style="opacity: 0.5">?nav=</span>${navname}</span>`
+        else document.querySelector("#content .n").innerHTML += `<span class="navig"><span style="opacity: 0.5">?nav=</span>${navname}</span>`
     })
 
     //ustawianie stylów
-    document.querySelector("#content .c").style.height = `${
-        document.querySelector("#content .c").scrollHeight
-    }px`
+    document.querySelector("#content .c").style.height = `${document.querySelector("#content .c").scrollHeight}px`
     document.querySelector("#content .n").style.height = "0"
 
     //nadawanie wartości ifs.canScroll
-    ifs.canScroll =
-        document.querySelector("#content").clientHeight <
-        document.querySelector("#content").scrollHeight
+    ifs.canScroll = document.querySelector("#content").clientHeight < document.querySelector("#content").scrollHeight
 
     if (ifs.canScroll) {
         document.querySelector("#content").style.borderEndEndRadius = "0.5rem"
@@ -161,29 +145,20 @@ function createHome() {
 }
 
 function setVisualClock() {
-    canScroll =
-        document.querySelector("#content").clientHeight <
-        document.querySelector("#content").scrollHeight
+    canScroll = document.querySelector("#content").clientHeight < document.querySelector("#content").scrollHeight
 
     //dodawanie zmiennych top i bottom
     var top = document.querySelector("#content").scrollTop > 15
-    var bottom =
-        document.querySelector("#content").scrollTop +
-            document.querySelector("#content").clientHeight <
-        document.querySelector("#content").scrollHeight - 15
+    var bottom = document.querySelector("#content").scrollTop + document.querySelector("#content").clientHeight < document.querySelector("#content").scrollHeight - 15
 
     //spawdzanie warunku ze zmniennej top
     if (top == ifs.isInTop) {
         if (top) {
-            document.querySelector("#content").style.borderStartEndRadius =
-                "0.5rem"
-            document.querySelector("#content").style.borderStartStartRadius =
-                "0.5rem"
+            document.querySelector("#content").style.borderStartEndRadius = "0.5rem"
+            document.querySelector("#content").style.borderStartStartRadius = "0.5rem"
         } else {
-            document.querySelector("#content").style.borderStartEndRadius =
-                "1.5rem"
-            document.querySelector("#content").style.borderStartStartRadius =
-                "1.5rem"
+            document.querySelector("#content").style.borderStartEndRadius = "1.5rem"
+            document.querySelector("#content").style.borderStartStartRadius = "1.5rem"
         }
     }
 
@@ -191,23 +166,17 @@ function setVisualClock() {
     if (canScroll) {
         if (bottom == ifs.isInBottom) {
             if (bottom) {
-                document.querySelector("#content").style.borderEndEndRadius =
-                    "0.5rem"
-                document.querySelector("#content").style.borderEndStartRadius =
-                    "0.5rem"
+                document.querySelector("#content").style.borderEndEndRadius = "0.5rem"
+                document.querySelector("#content").style.borderEndStartRadius = "0.5rem"
             } else {
-                document.querySelector("#content").style.borderEndEndRadius =
-                    "1.5rem"
-                document.querySelector("#content").style.borderEndStartRadius =
-                    "1.5rem"
+                document.querySelector("#content").style.borderEndEndRadius = "1.5rem"
+                document.querySelector("#content").style.borderEndStartRadius = "1.5rem"
             }
         }
     } else {
         if (canScroll != ifs.canScroll) {
-            document.querySelector("#content").style.borderEndEndRadius =
-                "1.5rem"
-            document.querySelector("#content").style.borderEndStartRadius =
-                "1.5rem"
+            document.querySelector("#content").style.borderEndEndRadius = "1.5rem"
+            document.querySelector("#content").style.borderEndStartRadius = "1.5rem"
         }
     }
 

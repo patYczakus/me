@@ -4,35 +4,40 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
 }
+
 @keyframes showAnimationV2 {
     0% {
         opacity: 0;
         transform: scale(0.8);
         color: transparent;
     }
+
     50% {
         opacity: 1;
         transform: scale(1);
         color: transparent;
     }
-    100% {
-    }
+
+    100% {}
 }
+
 @keyframes showAnimationV2_selection {
     0% {
         background: transparent;
         color: transparent;
     }
+
     50% {
         background: transparent;
         color: transparent;
     }
-    100% {
-    }
+
+    100% {}
 }
 
 @keyframes showHeaderAnimation_p1 {
@@ -42,6 +47,7 @@
         letter-spacing: 0;
         color: var(--font-color);
     }
+
     100% {
         transform: translateY(0);
         text-shadow: 0 0 0 #f8df5f, 0 0 0 #663399;
@@ -49,6 +55,7 @@
         color: var(--font-color);
     }
 }
+
 @keyframes showHeaderAnimation_p2 {
     0% {
         transform: translateY(0);
@@ -56,6 +63,7 @@
         letter-spacing: 0;
         text-shadow: 0 0 0 #f8df5f, 0 0 0 #663399;
     }
+
     100% {
         transform: translateY(0);
         color: var(--font-color);
@@ -65,11 +73,13 @@
 }
 
 @keyframes headerAnimation {
+
     0%,
     100% {
         letter-spacing: 8px;
         text-shadow: 5px 0 0 #f8df5f, -5px 0 0 #663399;
     }
+
     50% {
         letter-spacing: 6px;
         text-shadow: 3px 0 0 #f8df5f, -3px 0 0 #663399;
@@ -77,19 +87,24 @@
 }
 
 @keyframes jumpImageBig {
+
     0%,
     100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-50px);
     }
 }
+
 @keyframes jumpImageSmall {
+
     0%,
     100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-10px);
     }
@@ -103,10 +118,12 @@
         border-bottom: 3px solid var(--Y-color-2);
         color: var(--font-color);
     }
+
     50% {
         border: 0px solid transparent;
         color: var(--Y-color-2);
     }
+
     100% {
         border-left: 3px solid var(--Y-color-2);
         border-top: 3px solid var(--Y-color-2);
@@ -115,6 +132,7 @@
         color: var(--font-color);
     }
 }
+
 @keyframes toNoActive {
     0% {
         border-left: 3px solid var(--Y-color-2);
@@ -123,10 +141,12 @@
         border-bottom: 3px solid var(--Y-color-1);
         color: var(--font-color);
     }
+
     50% {
         border: 0px solid transparent;
         color: var(--Y-color-1);
     }
+
     100% {
         border-left: 3px solid var(--Y-color-1);
         border-top: 3px solid var(--Y-color-1);
@@ -150,6 +170,7 @@
 *:not(.standard) {
     box-sizing: border-box;
 }
+
 *::selection {
     color: var(--background-color);
     background: var(--font-color);
@@ -182,6 +203,7 @@ html {
     animation-timing-function: cubic-bezier(0.24, 0, 0.55, 1), ease-out;
     animation-iteration-count: infinite, 1;
 }
+
 .YimgLoad.big {
     animation-name: jumpImageBig, showAnimationV1;
     animation-duration: 10s, 2s;
@@ -237,9 +259,17 @@ html {
     animation-delay: 2s;
     animation-fill-mode: backwards;
 }
-#webpage #content::-webkit-scrollbar {
+
+#webpage #content::-webkit-scrollbar,
+#webpage #content::-webkit-scrollbar-button,
+#webpage #content::-webkit-scrollbar-corner,
+#webpage #content::-webkit-scrollbar-thumb,
+#webpage #content::-webkit-scrollbar-track,
+#webpage #content::-webkit-scrollbar-track-piece {
     display: none;
+    width: 0;
 }
+
 #webpage #content::selection {
     animation-name: showAnimationV2_selection;
     animation-timing-function: ease-in;
@@ -247,11 +277,13 @@ html {
     animation-delay: 2s;
     animation-fill-mode: backwards;
 }
+
 #webpage #content .c,
 #webpage #content .n {
     overflow-y: hidden;
     transition: height 1s cubic-bezier(0.24, 0, 0.55, 1);
 }
+
 #webpage #content .n span.navig {
     margin: 0 20px;
 }
@@ -269,6 +301,7 @@ blockquote {
     border-left: 6px solid var(--font-color);
     border-radius: 0.8rem;
 }
+
 blockquote p {
     margin: 8px 0;
 }
@@ -295,11 +328,13 @@ button#navigator {
     top: 76px;
     left: 10px;
 
+
     transition: border-radius cubic-bezier(0.24, 0, 0.55, 1) 100ms;
 
     animation-name: showAnimationV1;
     animation-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
     animation-duration: 2s;
+    animation-delay: 5s;
     animation-fill-mode: backwards;
 
     border-left: 3px solid var(--Y-color-1);
@@ -307,9 +342,11 @@ button#navigator {
     border-right: 3px solid var(--Y-color-2);
     border-bottom: 3px solid var(--Y-color-2);
 }
+
 button#navigator:hover {
     border-radius: 0.6rem;
 }
+
 button#navigator.noactive:not(.active) {
     animation-name: toNoActive;
     animation-timing-function: cubic-bezier(0.24, 0, 0.55, 1);
@@ -317,6 +354,7 @@ button#navigator.noactive:not(.active) {
     animation-delay: 1ms;
     animation-fill-mode: backwards;
 }
+
 button#navigator.active:not(.notactive) {
     border-left: 3px solid var(--Y-color-2);
     border-top: 3px solid var(--Y-color-2);
@@ -331,9 +369,8 @@ button#navigator.active:not(.notactive) {
 }
 
 blockquote,
-a,
-button#navigator:not(.active):not(.noactive) {
-    animation-delay: 5s;
+a {
+    animation-delay: 3.5s;
 }
 
 /*#######################################*/
@@ -343,10 +380,12 @@ button#navigator:not(.active):not(.noactive) {
         from {
             transform: translateY(-300px);
         }
+
         to {
             transform: translateY(0);
         }
     }
+
     #webpage #header {
         animation-name: showHeaderAnimation;
         animation-duration: 2s;
@@ -354,6 +393,7 @@ button#navigator:not(.active):not(.noactive) {
         animation-iteration-count: 1;
     }
 }
+
 @media (max-width: 1190px) {
     button#navigator {
         position: relative;

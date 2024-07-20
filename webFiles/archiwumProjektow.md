@@ -1,0 +1,22 @@
+Wspominałem na stronie o moich starych projektach. Tutaj znajduje się lista imo ciekawych gier:
+
+-   City clicker
+    -   > Pierwsza zrobiona gra w pierwszym języku programowania (poza Scratch).
+    -   Stworzony w **języku Batch (`.bat`)**
+    -   Ostatnia wersja: **0.2.1**
+    -   [Link](https://drive.google.com/file/d/1b5VPl2zjF-2Gx6zVu2YSWjYU5IVbA4rT/view?usp=drive_link), do pobrania
+-   Bitwa 8 frontów
+    -   > Gra AFK, taka dla zabawy.
+    -   Stworzony w **języku Python (`.py`)**
+    -   Ostatnia wersja: **1.0**
+    -   [Link](https://drive.google.com/file/d/1FOQwJ3jQaJlNtlMAqgfoEhgFoORXk5QE/view?usp=drive_link), do pobrania
+-   Lockhavior
+    -   > Komunikator; pierwsza strona sprawdzająca działanie [Google Firebase](https://firebase.google.com).
+    -   Sworzony w **HTML (`.html`)**
+    -   Ostatnia wersja: **1.4.2**
+    -   [~~Link~~](https://patyczakus.github.io/lockhavior) << można wejść, ale jest już niedziałający, można się na nim wzorować na GitHubie - repo [patYczakus/lockhavior](github.com/patYczakus/lockhavior)
+-   Scratchowy Globalchat
+    -   > Potężny projekt na scratchu stanowiący komunikator, ale bez wspierania wszystkich znaków.
+    -   Stworzony w **Scratch**
+    -   Wymagania: <u>konto Scratch i ranga **Scratcher** na nim</u>
+    -   [Link](https://scratch.mit.edu/projects/552131991/)

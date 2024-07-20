@@ -11,33 +11,12 @@ Jestem z rocznika 07 oraz człowiekiem wielu talentów, jak i zainteresowań.
 -   Moją kolejną cechą osobowości jest granie w popularne gry, takie jak Minecraft czy Rocket League. Jestem takim typem, co lubi eksperymentować i tworzyć dość kreatywne, ciekawe i zarazem kosztowne rozwiązania;
 -   Jestem graczem szach. Ranking 400 ELO, ale potrafię grać na poziomie ~1000 ELO.
 
-W skrócie mówiąc - mam rozgałęzienie naprawdę duże, jeżeli chodzi o moje umiejętności.
+W skrócie mówiąc - mam rozgałęzienie naprawdę duże, jeżeli chodzi o moje umiejętności. Niestety, większość z tych rzeczy zaniedbywuję na rzecz programowania... nawet się nie dziwię - to jest moja jedyna rzecz, którą chcę robić.
 
 ## Projekty
 
-Nie obejdzie się bez opisania projektów. A oto niewspierane projekty:
-
--   City clicker
-    -   > Pierwsza zrobiona gra w pierwszym języku programowania (poza Scratch).
-    -   Język programowania: **Batch (`.bat`)**
-    -   Ostatnia wersja: **0.2.1**
-    -   [Link](https://drive.google.com/file/d/1b5VPl2zjF-2Gx6zVu2YSWjYU5IVbA4rT/view?usp=drive_link)
--   Bitwa 8 frontów
-    -   > Gra AFK, taka dla zabawy.
-    -   Język programowania: **Python (`.py`)**
-    -   Ostatnia wersja: **1.0**
-    -   [Link](https://drive.google.com/file/d/1FOQwJ3jQaJlNtlMAqgfoEhgFoORXk5QE/view?usp=drive_link)
--   Lockhavior
-    -   > Komunikator; pierwsza strona sprawdzająca działanie [Google Firebase](https://firebase.google.com).
-    -   Język programowania: **HTML (`.html`)**
-    -   Ostatnia wersja: **1.4.2**
-    -   [Link](https://patyczakus.github.io/lockhavior)
--   Globalchat
-    -   > Potężny projekt na scratchu stanowiący komunikator, ale bez wspierania wszystkich znaków.
-    -   Język programowania: **Scratch**
-    -   Wymagania: <u>Konto Scratch i wymagana ranga **Scratcher**</u>
-    -   [Link](https://scratch.mit.edu/projects/552131991/)
+Nie obejdzie się bez opisania projektów. Moje popularne są [Starcie Internetu](https://patyczakus.github.io/starcie-internetu) (gra-bijatyka kultów Internetu) oraz Globally, innowacyjny bot z GlobalChatem i ImaCarrrd.
 
 ## Mój informacyjny serwer
 
-Można zapytać, to gdzie reszta aktualnych? Na moim [serwerze Discord](https://discord.gg/7S3P2DUwAm) - tam też robię małą społeczność
+Posiadam też mój [serwer Discord](https://discord.gg/7S3P2DUwAm) poświęconym moim projektom, jak i teamie "mysterY Devs" - tam też robię małą społeczność.

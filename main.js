@@ -1,3 +1,5 @@
+function runPTKFunctionOnLoad() {}
+
 const inBuild = false
 const ifs = {
     isInTop: true,
@@ -16,6 +18,10 @@ const navigatorJSON = {
             file: "kontakt.md",
             showInNav: true,
         },
+        archiwum_projektów: {
+            file: "archiwumProjektow.md",
+            showInNav: true,
+        },
         nt: {
             file: "404.html",
             showInNav: false,
@@ -27,6 +33,8 @@ var file = {
     type: "",
     navname: "",
 }
+
+window.runPTKFunctionOnLoad
 
 /**
  * Obraz przedstawiający Y
@@ -142,6 +150,7 @@ function createHome() {
     }
 
     setVisualClock()
+    c404()
 }
 
 function setVisualClock() {
@@ -186,6 +195,12 @@ function setVisualClock() {
     ifs.canScroll = canScroll
 
     requestAnimationFrame(setVisualClock)
+}
+
+function c404() {
+    if (document.querySelector("h1#c404-code"))
+        document.querySelector("h1#c404-code").style.transform = `translateX(${Math.random() * 20 - 10}px) translateY(${Math.random() * 5 - 2.5}px)`
+    setTimeout(c404, 100)
 }
 
 window.onload = () => {

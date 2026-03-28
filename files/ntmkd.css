@@ -1,0 +1,106 @@
+@keyframes show {
+    from {
+    margin-right: -200px;
+    opacity: 0;
+    } to {}
+}
+
+@font-face {
+    font-family: "FBTPro-NTMKD";
+    src: local("Futura BT Pro Heavy"), local("FBTPro-NTMKD"),
+url("https://github.com/patYczakus/me/raw/refs/heads/main/files/Futura%20BT%20Pro%20Heavy.otf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+.ntmkd.main {
+    width: 100%;
+    max-width: 560px;
+    padding: 15px;
+    background: #80808033;
+    border-radius: 1rem
+}
+.ntmkd.main:not(:first-child) {
+    margin-top: 7px
+}
+
+.ntmkd.banner, .ntmkd.small-banner {
+    display: flex;
+    justify-content: space-between;
+    border-radius: calc(1rem - 7.5px);
+    background: white;
+    color: black;
+    padding: 30px;
+    overflow: hidden;
+}
+.ntmkd.small-banner {
+    align-items: center;
+    padding: 17.5px
+}
+.ntmkd.banner > .title {
+    display: flex;
+    text-align: right;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: center;
+}
+.ntmkd.banner > .title > .ntmkd,
+.ntmkd.small-banner > .ntmkd {
+    font-size: 23px;
+    opacity: 0.7;
+    font-family: "FBTPro-NTMKD";
+    animation: show 0.7s ease;
+}
+.ntmkd.small-banner > .ntmkd {
+    font-size: 16px;
+    animation: none;
+}
+.ntmkd.banner > .title > .text,
+.ntmkd.small-banner > .text {
+    font-size: 28px;
+    font-family: "FBTPro-NTMKD";
+    color: black;
+    animation: show 0.7s 0.3s ease;
+    animation-fill-mode: backwards;
+}
+.ntmkd.small-banner > .text {
+    font-size: 22px;
+    animation: show 0.7s 0s ease;
+}
+.ntmkd.banner > img {
+    height: 120px;
+    border-radius: calc(1rem - 9px);
+    margin: -10px;
+}
+
+.ntmkd.content {
+    font-size: 18px;
+    margin-top: 10px;
+}
+.ntmkd.content .smalltext {
+    font-size: 85%;
+    opacity: 0.76;
+}
+.ntmkd.content code {
+    font-size: calc(100% - 3px);
+    background: #80808033;
+    border: 0.5px solid #80808066;
+    padding: 1px 4px;
+    border-radius: 0.3rem;
+}
+.ntmkd.content .codeblock {
+    font-size: calc(100% - 3px);
+    margin: 5px 0;
+    background: #80808033;
+    border: 0.5px solid #808080;
+    border-radius: calc(1rem - 7.5px);
+    padding: 3px
+}
+.ntmkd.content .codeblock > pre {
+    margin: 3px;
+}
+.ntmkd.content h1,
+.ntmkd.content h2,
+.ntmkd.content h3 {
+    margin: 0.5rem 0;
+}
